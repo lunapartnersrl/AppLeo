@@ -37,20 +37,14 @@
       "id": "cordova-plugin-ionic-webview@^4.0.0"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+    }
   },
   "cordova-plugin-ionic-keyboard": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-ionic-keyboard@^2.0.5"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-calendar": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-calendar@5.1.5"
     },
     "is_top_level": true,
     "variables": {}
