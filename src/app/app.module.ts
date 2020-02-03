@@ -11,6 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {Convenzioni} from '../pages/convenzioni/convenzioni';
 import {Dettagliostruttura} from "../pages/dettagliostruttura/dettagliostruttura";
 import {AboutUs} from "../pages/aboutus/aboutus";
+import {NgCalendarModule} from "ionic2-calendar";
+import {CalendarPage} from "../pages/calendar/calendar";
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import {AboutUs} from "../pages/aboutus/aboutus";
     ListPage,
     AboutUs,
     Dettagliostruttura,
-    Convenzioni
+    Convenzioni,
+      CalendarPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+      NgCalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +36,8 @@ import {AboutUs} from "../pages/aboutus/aboutus";
     ListPage,
     AboutUs,
     Dettagliostruttura,
-    Convenzioni
+    Convenzioni,
+      CalendarPage
   ],
   providers: [
     StatusBar,

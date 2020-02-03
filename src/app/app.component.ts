@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import {AboutUs} from "../pages/aboutus/aboutus";
 import {Convenzioni} from "../pages/convenzioni/convenzioni";
+import {CalendarPage} from "../pages/calendar/calendar";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       {title: 'Chi siamo', component: AboutUs },
-      {title: 'Convenzioni', component: Convenzioni}
+      {title: 'Convenzioni', component: Convenzioni},
+        {title: 'Calendario', component: CalendarPage}
     ];
 
   }
