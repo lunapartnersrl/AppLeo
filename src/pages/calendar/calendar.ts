@@ -16,6 +16,8 @@ import {CalendarComponent} from "ionic2-calendar/calendar";
 })
 export class CalendarPage {
 
+    collapseCard: boolean = false;
+
     event = {
         title: '',
         desc: '',

@@ -91,6 +91,7 @@ var CalendarPage = /** @class */ (function () {
     function CalendarPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.collapseCard = false;
         this.event = {
             title: '',
             desc: '',
@@ -183,15 +184,16 @@ var CalendarPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2_ionic2_calendar_calendar__["a" /* CalendarComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic2_calendar_calendar__["a" /* CalendarComponent */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic2_calendar_calendar__["a" /* CalendarComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic2_calendar_calendar__["a" /* CalendarComponent */]) === "function" && _a || Object)
     ], CalendarPage.prototype, "myCal", void 0);
     CalendarPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-calendar',template:/*ion-inline-start:"/Users/stefanofiora/AppLeo/src/pages/calendar/calendar.html"*/'<!--\n  Generated template for the CalendarPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Calendar</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <calendar [eventSource]="eventSource"\n            [calendarMode]="calendar.mode"\n            [currentDate]="calendar.currentDate"\n            (onTitleChanged)="onViewTitleChanged($event)"\n            (onTimeSelected)="onTimeSelected($event)"\n            step="30">\n\n  </calendar>\n</ion-content>\n'/*ion-inline-end:"/Users/stefanofiora/AppLeo/src/pages/calendar/calendar.html"*/,
+            selector: 'page-calendar',template:/*ion-inline-start:"/Users/stefanofiora/AppLeo/src/pages/calendar/calendar.html"*/'<!--\n  Generated template for the CalendarPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Calendar</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <!-- Card for adding a new event -->\n  <ion-card>\n    <ion-card-header tappable (click)="collapseCard = !collapseCard">\n      <ion-card-title>New Event</ion-card-title>\n    </ion-card-header>\n    <ion-card-content *ngIf="!collapseCard">\n\n      <ion-item>\n        <ion-input type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input type="text" placeholder="Description" [(ngModel)]="event.desc"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Start</ion-label>\n        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.startTime" [min]="minDate"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-label>End</ion-label>\n        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>\n      </ion-item>\n      <ion-item>\n        <ion-label>All Day?</ion-label>\n        <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>\n      </ion-item>\n      <button ion-button fill="outline" expand="block" (click)="addEvent()" [disabled]="event.title == \'\'">Add Event</button>\n\n    </ion-card-content>\n  </ion-card>\n\n  <ion-row>\n    <!-- Change the displayed calendar mode -->\n    <ion-col size="4">\n      <button ion-button expand="block" [color]="calendar.mode == \'month\' ? \'primary\' : \'secondary\'" (click)="changeMode(\'month\')">Month</button>\n    </ion-col>\n    <ion-col size="4">\n      <button ion-button expand="block" [color]="calendar.mode == \'week\' ? \'primary\' : \'secondary\'" (click)="changeMode(\'week\')">Week</button>\n    </ion-col>\n    <ion-col size="4">\n      <button ion-button expand="block" [color]="calendar.mode == \'day\' ? \'primary\' : \'secondary\'" (click)="changeMode(\'day\')">Day</button>\n    </ion-col>\n\n    <!-- Move back one screen of the slides -->\n    <ion-col size="6" text-left>\n      <button ion-button fill="clear" (click)="back()">\n        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>\n      </button>\n    </ion-col>\n\n    <!-- Move forward one screen of the slides -->\n    <ion-col size="6" text-right>\n      <button ion-button fill="clear" (click)="next()">\n        <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>\n      </button>\n    </ion-col>\n  </ion-row>\n  <calendar [eventSource]="eventSource"\n            [calendarMode]="calendar.mode"\n            [currentDate]="calendar.currentDate"\n            (onTitleChanged)="onViewTitleChanged($event)"\n            (onTimeSelected)="onTimeSelected($event)"\n            step="30">\n\n  </calendar>\n</ion-content>\n'/*ion-inline-end:"/Users/stefanofiora/AppLeo/src/pages/calendar/calendar.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _c || Object])
     ], CalendarPage);
     return CalendarPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=calendar.js.map
@@ -586,7 +588,7 @@ var MyApp = /** @class */ (function () {
         this.platform = platform;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_8__pages_calendar_calendar__["a" /* CalendarPage */];
         this.initializeApp();
         // used for an example of ngFor and navigation
         this.pages = [
