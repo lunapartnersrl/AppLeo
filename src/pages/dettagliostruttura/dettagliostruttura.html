@@ -1,0 +1,59 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+    <img
+        [src]=struttura.getImgPath()
+        class="hotel-top-img"
+        alt="Hotel image" />
+    <button
+        ion-button
+        icon-only
+        clear
+        large
+        color="light"
+        class="hotel-close-icon"
+        (click)="backToConvenzioni()"
+    >
+        <ion-icon name="close-circle" ></ion-icon>
+    </button>
+    <div padding>
+        <h3>{{struttura.getName()}}</h3>
+        <ion-item no-padding>
+            <ion-label class="text-grey">Indirizzo</ion-label>
+            <ion-label class="align-right">{{struttura.getAddress()}}</ion-label>
+        </ion-item>
+        <ion-item no-padding>
+            <ion-label class="text-grey">Numero</ion-label>
+            <ion-label class="align-right">{{struttura.getTelNumber()}}</ion-label>
+        </ion-item>
+
+        <div *ngIf="restaurant; then restaurantBlock"></div>
+        <ng-template #restaurantBlock>
+          <ion-item no-padding>
+            <ion-label class="text-grey">Cucina</ion-label>
+            <ion-label class="align-right">{{struttura.getCucina()}}</ion-label>
+          </ion-item>
+        </ng-template>
+
+        <ion-item no-padding>
+            <ion-label class="text-grey" position="stacked">Descrizione</ion-label>
+        </ion-item>
+        <p class="description">
+            {{struttura.getDescription()}}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Etiam vel nisi sodales, venenatis tortor et, molestie nibh.
+            Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.
+        </p>
+        <!--
+            image or map with the location
+        -->
+        <button
+            ion-button
+            block
+            class="btn-call"
+        >
+            Chiama
+        </button>
+    </div>
+</ion-content>

@@ -1,0 +1,27 @@
+.card-img{
+    float: left;
+    width: 33vw;
+    height: 33vw;
+}
+
+.card-content-right{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 35vw;
+}
+
+.card{
+    border-radius: .7em;
+}
+
+.card-info{
+    margin-left: 1em;
+}
+
+.icon-spacing{
+    margin: .1em;
+    width: 1em;
+}

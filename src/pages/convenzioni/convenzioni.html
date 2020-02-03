@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Convenzioni</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div padding>
+        <ion-segment [(ngModel)]="selectedConv">
+          <ion-segment-button value="hotels">
+            Hotel
+          </ion-segment-button>
+          <ion-segment-button value="restaurants">
+            Ristoranti
+          </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <div [ngSwitch]="selectedConv">
+        <div *ngSwitchCase="'hotels'">
+            <ion-item
+                no-lines
+                *ngFor="let item of hotelsList"
+                (click)="itemTapped($event, item)">
+                <ion-card class="card" [id]='item.name' no-padding >
+                    <img [src]=item.getImgPath() class="card-img"/>
+                    <ion-card-content class="card-content-right">
+                        <ion-card-title>
+                            {{item.getName()}}
+                        </ion-card-title>
+                        <div>
+
+                            <p>
+                                <ion-icon slot="start" class="icon-spacing" name="logo-euro"></ion-icon>
+                                {{item.getFormattedPrice()}}
+                            </p>
+
+                            <p>
+                                <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>
+                                {{item.getAddress()}}
+                            </p>
+
+                            <p>
+                                <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>
+                                {{item.getTelNumber()}}
+                            </p>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+        </div>
+        <div *ngSwitchCase="'restaurants'">
+            <ion-item
+                no-lines
+                *ngFor="let item of restaurantsList"
+                (click)="itemTapped($event, item)">
+                <ion-card class="card" [id]='item.name' no-padding >
+                    <img [src]=item.getImgPath() class="card-img"/>
+                    <ion-card-content class="card-content-right">
+                        <ion-card-title>
+                            {{item.getName()}}
+                        </ion-card-title>
+                        <div>
+
+                            <p>
+                                <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>
+                                {{item.getAddress()}}
+                            </p>
+
+                            <p>
+                                <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>
+                                {{item.getTelNumber()}}
+                            </p>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+        </div>
+    </div>
+  </ion-content>
