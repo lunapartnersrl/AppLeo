@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import {ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -13,6 +13,10 @@ import {Dettagliostruttura} from "../pages/dettagliostruttura/dettagliostruttura
 import {AboutUs} from "../pages/aboutus/aboutus";
 import {NgCalendarModule} from "ionic2-calendar";
 import {CalendarPage} from "../pages/calendar/calendar";
+import { registerLocaleData } from "@angular/common";
+import localeIt from '@angular/common/locales/it'
+registerLocaleData(localeIt)
+
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import {CalendarPage} from "../pages/calendar/calendar";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+      {provide:LOCALE_ID, useValue: 'it-IT'}
   ]
 })
 export class AppModule {}

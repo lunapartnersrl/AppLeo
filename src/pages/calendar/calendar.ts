@@ -1,6 +1,7 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, Inject, LOCALE_ID, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CalendarComponent} from "ionic2-calendar/calendar";
+import * as moment from "moment";
 
 /**
  * Generated class for the CalendarPage page.
@@ -16,7 +17,7 @@ import {CalendarComponent} from "ionic2-calendar/calendar";
 })
 export class CalendarPage {
 
-    collapseCard: boolean = false;
+    collapseCard: boolean = true;
 
     event = {
         title: '',
@@ -26,19 +27,21 @@ export class CalendarPage {
         allDay: false
     };
 
-    minDate = new Date().toISOString();
+    minDate = moment().toISOString();
 
     eventSource = [];
     viewTitle;
 
     calendar = {
         mode: 'month',
-        currentDate: new Date()
+        currentDate: moment().toDate(),
+        locale: this.locale
     };
 
     @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, @Inject(LOCALE_ID) private locale:string) {
+      moment.locale('it');
   }
 
   ionViewDidLoad() {
@@ -52,7 +55,7 @@ export class CalendarPage {
         this.event = {
             title: '',
             desc: '',
-            startTime: new Date().toISOString(),
+            startTime: moment().date().toString(),
             endTime: new Date().toISOString(),
             allDay: false
         };
@@ -124,9 +127,11 @@ export class CalendarPage {
 
 // Time slot was clicked
     onTimeSelected(ev) {
-        let selected = new Date(ev.selectedTime);
-        this.event.startTime = selected.toISOString();
-        selected.setHours(selected.getHours() + 1);
-        this.event.endTime = (selected.toISOString());
+        let selected = moment();
+        console.log(selected);
+        this.event.startTime = selected.format();
+
+        selected.hours(selected.hours() + 1);
+        this.event.endTime = (selected.format());
     }
 }
