@@ -25776,13 +25776,16 @@ ion-navbar.toolbar {
   border: 1px solid red;
 }
 
-#tmp-div {
+#map_canvas {
+  height: 25vh;
+  width: 100%;
   border-radius: 12px;
 }
 
-/*
-#map_canvas{
-    height: 25vh;
-    width: 100%;
+.course-list {
+  border-left: 1em solid red;
 }
-*/
+
+.card-content-time {
+  color: grey;
+}
