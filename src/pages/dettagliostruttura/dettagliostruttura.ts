@@ -34,12 +34,13 @@ export class Dettagliostruttura {
 		this.struttura = this.hotel ? this.hotel : this.restaurant;
     }
 
+	
 	ionViewDidLoad() {
 		this.loadMap();
 	}
 
 	loadMap() {
-
+		
 		/* precondition to access location =>
 			A.the object hotel/restaurant will also have a property
 			location:{lat: x, lng: y}
@@ -48,7 +49,6 @@ export class Dettagliostruttura {
 			B. if we have only the address we have to do the geolocation
 			of it, to get the lat, lng from the address
 		*/
-
 
 		Environment.setEnv({
 			'API_KEY_FOR_BROWSER_RELEASE': '',

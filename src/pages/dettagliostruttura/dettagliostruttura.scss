@@ -25,13 +25,23 @@
 }
 
 .btn-call{
-    background-color: lightseagreen;
+    height: 60px;
+    background-color: #4CE4A7;
     color: whitesmoke;
+    margin-top:2em;
+}
+.btn-call {border-radius: 12px;}
+
+#tmp-div{
+    height: 25vh;
+    width: 100%;
+    border: 1px solid red;
 }
 
 #map_canvas{
     height: 25vh;
     width: 100%;
+    border-radius: 12px;
 }
 
 
