@@ -3,6 +3,8 @@
     width: 33vw;
     height: 33vw;
 }
+.card-img{border-bottom-left-radius: 12px;}
+
 
 .card-content-right{
     margin: 0;
@@ -13,12 +15,17 @@
     margin-left: 35vw;
 }
 
+
+
 .card{
-    border-radius: .7em;
+    border-radius: .7m;
+    margin-top: .2em;
 }
+.card{border-radius: 12px;}
+
 
 .card-info{
-    margin-left: 1em;
+    margin-left: 1em;;
 }
 
 .icon-spacing{
