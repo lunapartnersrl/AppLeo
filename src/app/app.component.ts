@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import {AboutUs} from "../pages/aboutus/aboutus";
 import {Convenzioni} from "../pages/convenzioni/convenzioni";
 import {CalendarPage} from "../pages/calendar/calendar";
+import * as moment from "moment";
 
 @Component({
   templateUrl: 'app.html'
@@ -21,6 +22,8 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
+
+      moment.locale('it');
 
     // used for an example of ngFor and navigation
     this.pages = [

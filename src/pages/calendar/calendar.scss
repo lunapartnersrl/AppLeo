@@ -1,3 +1,6 @@
 page-calendar {
-
+  .table-bordered thead {
+    background-color: color($colors, primary);
+    color: color($colors, light);
+  }
 }

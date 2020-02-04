@@ -9,7 +9,7 @@
     <button ion-button button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Calendar</ion-title>
+    <ion-title>{{viewTitle}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -43,39 +43,41 @@
 
     </ion-card-content>
   </ion-card>
-
-  <ion-row>
-    <!-- Change the displayed calendar mode -->
-    <ion-col size="4">
-      <button ion-button expand="block" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'" (click)="changeMode('month')">Month</button>
-    </ion-col>
-    <ion-col size="4">
-      <button ion-button expand="block" [color]="calendar.mode == 'week' ? 'primary' : 'secondary'" (click)="changeMode('week')">Week</button>
-    </ion-col>
-    <ion-col size="4">
-      <button ion-button expand="block" [color]="calendar.mode == 'day' ? 'primary' : 'secondary'" (click)="changeMode('day')">Day</button>
-    </ion-col>
-
-    <!-- Move back one screen of the slides -->
-    <ion-col size="6" text-left>
-      <button ion-button fill="clear" (click)="back()">
-        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-      </button>
-    </ion-col>
-
-    <!-- Move forward one screen of the slides -->
-    <ion-col size="6" text-right>
-      <button ion-button fill="clear" (click)="next()">
-        <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
-      </button>
-    </ion-col>
-  </ion-row>
+  <!--<ion-row>-->
+    <!--&lt;!&ndash; Change the displayed calendar mode &ndash;&gt;-->
+    <!--<ion-col size="4">-->
+      <!--<button ion-button expand="block" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'" (click)="changeMode('month')">Mesi</button>-->
+    <!--</ion-col>-->
+    <!--<ion-col size="4">-->
+      <!--<button ion-button expand="block" [color]="calendar.mode == 'week' ? 'primary' : 'secondary'" (click)="changeMode('week')">Settimane</button>-->
+    <!--</ion-col>-->
+    <!--<ion-col size="4">-->
+      <!--<button ion-button expand="block" [color]="calendar.mode == 'day' ? 'primary' : 'secondary'" (click)="changeMode('day')">Giorni</button>-->
+    <!--</ion-col>-->
+  <!--</ion-row>-->
+    <ion-row>
+        <!-- Move back one screen of the slides -->
+        <ion-col size="6" text-left>
+            <button ion-button fill="clear" (click)="back()">
+                <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+            </button>
+        </ion-col>
+        <!-- Move forward one screen of the slides -->
+        <ion-col size="6" text-right>
+            <button ion-button fill="clear" (click)="next()">
+                <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
   <calendar [eventSource]="eventSource"
+            [allDayLabel]="calendar.allDayLabel"
+            [noEventsLabel]="calendar.noEventsLabel"
             [calendarMode]="calendar.mode"
             [currentDate]="calendar.currentDate"
             (onTitleChanged)="onViewTitleChanged($event)"
             (onTimeSelected)="onTimeSelected($event)"
-            step="30">
+            (onEventSelected)="onEventSelected($event)"
+            [step]="30">
 
   </calendar>
 </ion-content>

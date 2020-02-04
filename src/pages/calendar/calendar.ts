@@ -1,5 +1,5 @@
 import {Component, Inject, LOCALE_ID, ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {CalendarComponent} from "ionic2-calendar/calendar";
 import * as moment from "moment";
 
@@ -33,15 +33,18 @@ export class CalendarPage {
     viewTitle;
 
     calendar = {
-        mode: 'month',
-        currentDate: moment().toDate(),
-        locale: this.locale
+      allDayLabel: 'Tutto il giorno',
+      noEventsLabel: 'Nessun evento',
+      mode: 'month',
+      currentDate: moment().toDate(),
+      currentSection: moment().format('MMMM'),
+      locale: this.locale
     };
 
     @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, @Inject(LOCALE_ID) private locale:string) {
-      moment.locale('it');
+  constructor(public navCtrl: NavController, public navParams: NavParams, @Inject(LOCALE_ID) private locale:string, private alertCtrl: AlertController) {
+
   }
 
   ionViewDidLoad() {
@@ -55,8 +58,8 @@ export class CalendarPage {
         this.event = {
             title: '',
             desc: '',
-            startTime: moment().date().toString(),
-            endTime: new Date().toISOString(),
+            startTime: moment().format(),
+            endTime: moment().format(),
             allDay: false
         };
     }
@@ -102,7 +105,7 @@ export class CalendarPage {
 
 // Focus today
     today() {
-        this.calendar.currentDate = new Date();
+        this.calendar.currentDate = moment().toDate();
     }
 
 // Selected date reange and hence title changed
@@ -111,19 +114,19 @@ export class CalendarPage {
     }
 
 // Calendar event was clicked
-//     async onEventSelected(event) {
-//         // Use Angular date pipe for conversion
-//         let start = formatDate(event.startTime, 'medium', this.locale);
-//         let end = formatDate(event.endTime, 'medium', this.locale);
-//
-//         const alert = await this.alertCtrl.create({
-//             header: event.title,
-//             subHeader: event.desc,
-//             message: 'From: ' + start + '<br><br>To: ' + end,
-//             buttons: ['OK']
-//         });
-//         alert.present();
-//     }
+  async onEventSelected(event) {
+      // Use Angular date pipe for conversion
+      let start = moment(this.event.startTime).format('HH:mm');
+      let end = moment(this.event.endTime).format('HH:mm');
+
+      const alert = await this.alertCtrl.create({
+          title: event.title,
+          subTitle: event.desc,
+          message: 'From: ' + start + '<br><br>To: ' + end,
+          buttons: ['OK']
+      });
+      alert.present();
+  }
 
 // Time slot was clicked
     onTimeSelected(ev) {
