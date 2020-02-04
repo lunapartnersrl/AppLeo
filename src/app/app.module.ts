@@ -14,6 +14,9 @@ import {AboutUs} from "../pages/aboutus/aboutus";
 import {NgCalendarModule} from "ionic2-calendar";
 import {CalendarPage} from "../pages/calendar/calendar";
 
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { ListaCorsi } from '../pages/listacorsi/listacorsi';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,12 +25,13 @@ import {CalendarPage} from "../pages/calendar/calendar";
     AboutUs,
     Dettagliostruttura,
     Convenzioni,
-      CalendarPage
+    CalendarPage,
+    ListaCorsi
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-      NgCalendarModule
+    NgCalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,11 +41,13 @@ import {CalendarPage} from "../pages/calendar/calendar";
     AboutUs,
     Dettagliostruttura,
     Convenzioni,
-      CalendarPage
+    CalendarPage,
+    ListaCorsi
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

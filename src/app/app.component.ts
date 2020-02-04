@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import {AboutUs} from "../pages/aboutus/aboutus";
 import {Convenzioni} from "../pages/convenzioni/convenzioni";
 import {CalendarPage} from "../pages/calendar/calendar";
+import { ListaCorsi } from '../pages/listacorsi/listacorsi';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,9 +27,10 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      {title: 'Chi siamo', component: AboutUs },
-      {title: 'Convenzioni', component: Convenzioni},
-        {title: 'Calendario', component: CalendarPage}
+      { title: 'Chi siamo', component: AboutUs },
+      { title: 'Convenzioni', component: Convenzioni },
+      { title: 'Calendario', component: CalendarPage },
+      { title: 'Lista corsi', component: ListaCorsi }
     ];
 
   }
