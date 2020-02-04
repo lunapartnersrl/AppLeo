@@ -1,33 +1,67 @@
 export class CustomEvent{
 
+    /*
+    -> startDateTime/endDateTime
+    ->
+    */
+
     private title: string = null;
-    private startTime: Date = null;
-    private endTime: Date = null;
-    private date: Date = null;
+    private startDateTime: string = null;
+    private endDateTime: string = null;
     private description: string = null;
-    private duration: number = -1; //seconds
+    private duration: number = -1;
 
     /*
     preconditions:
-        - startTime, endTime is an ISO string
+        - startDateTime, endDateTime is an ISO string
         - duration is in seconds
     */
 
-    constructor(title: string, startTime: string, endTime: string, description: string, duration: number){
+    constructor(title: string, startDateTime: string, endDateTime: string, description: string){
         this.title = title;
-        this.startTime = new Date(startTime);
-        this.endTime = new Date(endTime);
-        this.date = this.formatDateFromISO(startTime);
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
         this.description = description;
-        this.duration = duration;
+        this.duration = this.formatEventDuration(startDateTime, endDateTime);
     }
 
     getTitle(){ return this.title }
     getDescription(){ return this.description }
-    getDuration(){ return this.duration }
+    getISOStartDate(){ return this.startDateTime }
 
-    formatDateFromISO(isoDate: string){
-        let date = new Date(isoDate);
-        return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()))
+    getStartingDate(){
+        let start = new Date(this.startDateTime);
+        let day = start.getDate();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        let month = monthNames[start.getMonth()];
+        return day + month;
+    }
+
+
+    getEndingDate(){
+        let end = new Date(this.startDateTime);
+        let day = end.getDate();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        let month = monthNames[end.getMonth()];
+        return day + month;
+    }
+
+    getTimeDuration(){
+        return `${this.duration /60} minuti`;
+    }
+
+    getDaysDuration(){
+        return `${this.duration /86400} giorni`;
+    }
+
+    formatEventDuration(startDT, endDT){
+        let start = new Date(startDT);
+        let end = new Date(endDT);
+        let difference = end.getTime() - start.getTime();
+        return Math.abs(difference / 1000);
     }
 }
