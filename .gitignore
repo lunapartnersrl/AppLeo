@@ -58,3 +58,5 @@ core/www/
 .stencil/
 angular/build/
 node_modules
+platforms
+plugins
