@@ -3,13 +3,52 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>Lista corsi</ion-title>
-      <!--
-          here goes the search input
-        -->
+      <ion-item no-lines>
+        <ion-input
+          type="text"
+          placeholder="Cerca il corso"
+          [(ngModel)]="searchCourseValue"
+          (ngModelChange)="onSearchInputChange()"
+        >
+        </ion-input>
+      </ion-item>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <h3>Lista corsi</h3>
+    <ion-item no-lines no-padding>
+      <p>Ordina per</p>
+      <button ion-button icon-start color="light"
+        (click)="orderByDate()"
+
+      >
+        <ion-icon name="calendar"></ion-icon>
+        Data
+      </button>
+      <button ion-button icon-start color="light"
+        (click)="orderByTitle()"
+      >
+        <ion-icon name="list"></ion-icon>
+        Ordine alfaberico
+      </button>
+
+    </ion-item>
+
+      <ion-card
+        class="course-list"
+        no-lines
+        no-padding
+        *ngFor="let item of customCoursesList"
+      >
+        <ion-card-header>
+          {{ item.getTitle() }}
+        </ion-card-header>
+        <ion-card-content>
+          <div class="card-content-date">{{ item.getStartingDate() }} > {{ item.getEndingDate() }}</div>
+          <div class="card-content-time">11:20 > 13:00</div>
+        </ion-card-content>
+      </ion-card>
+
+
+
 </ion-content>
