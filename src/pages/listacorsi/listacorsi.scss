@@ -1,5 +1,36 @@
-.course-list{
-    border-left: 1em solid red;
+.red{
+
+    border-left: 1em solid #ff6b6b;
+}
+
+.black{
+    border-left: 1em solid #576574;
+}
+
+.blue{
+    border-left: 1em solid #5f27cd;
+}
+
+.orange{
+    border-left: 1em solid #ff9f43;
+}
+
+.yellow{
+    border-left: 1em solid #feca57;
+}
+
+.green{
+    border-left: 1em solid #1dd1a1;
+}
+
+.card-layout{
+    background-color: #fafafa;
+    border-radius: 1em;
+    border: .1em solid #576574 .1em solid #576574 .1em solid #576574;
+    margin-top: 2em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+
 }
 
 .card-content-time{
@@ -8,4 +39,8 @@
 
 .card-content-date{
 
+}
+
+.input-search{
+    border-radius: .3em;
 }
