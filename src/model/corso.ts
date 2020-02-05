@@ -14,11 +14,14 @@ export class Corso extends CustomEvent{
         this.color = Color[color];
         this.address = address;
         this.classroom = classroom;
+        this.teacher = teacher;
     }
 
     getAddress(){   return this.address }
     getClassroom(){ return this.classroom }
-    getColor(){ return this.color.toString() }
-
+    getColor(){
+        return Color[this.color]
+    }
+    getTeacher(){ return this.teacher }
 }
 

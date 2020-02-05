@@ -3,5 +3,6 @@ export enum Color{
     blue,
     green,
     yellow,
+    orange,
     black
 }
