@@ -15,6 +15,10 @@ export class ListaCorsi {
   customCoursesList: Array<Corso>;
   selectedCourse: Corso;
 
+  coursesAPIList: Array<{
+
+  }>;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     (navParams.data.title) ? this.selectedCourse = navParams.data : this.selectedCourse = null;
     this.coursesList = [];
@@ -77,5 +81,18 @@ export class ListaCorsi {
         console.log('there is a course');
         document.getElementById(this.selectedCourse.getTitle()).scrollIntoView();
     }
+
+    fetch('https://iscrizioni.istruzioneer.it/api/corsi')
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        // Work with JSON data here
+        console.log(data)
+      })
+      .catch(err => {
+        // Do something for an error here
+        console.log(err);
+      })
   }
 }
