@@ -1,0 +1,85 @@
+.on-the-same-line{
+    display: flex;
+}
+
+.margin-bottom{
+    margin-bottom: 3.5em;
+}
+
+.padded{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.align-right{
+    text-align: right;
+    margin-right: 0;
+}
+
+.text-grey{
+    color: grey;
+}
+
+.description{
+    color: darkgray;
+    margin-top: 1vh;
+}
+
+.corso-top-img{
+    height: 23vh;
+    width: 100vw;
+    position: relative;
+}
+
+.corso-close-icon{
+    position: absolute;
+    top: .3em;
+    left: .3em;
+}
+
+.social-btn{
+    display: inline-block;
+    text-decoration: none;
+    background: #fafafa;
+    color: #341f97;
+    width: 20vw;
+    height: 20vw;
+    line-height: 20vw;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: .4s;
+    margin-right: 1em;
+    margin-left: .1em;
+    font-size: x-large;
+    border: 0.01em solid #341f97;
+}
+
+.contact-form{
+    background-color: #5f27cd;
+    color: white;
+    border: 1px solid white;
+    border-radius: .5em;
+}
+
+.form-element{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #5f27cd;
+    border-radius: .2em;
+    padding: .4em;
+}
+
+.send-btn{
+    background-color: #341f97;
+    color:white;
+    width: 50%;
+    height: 5vh;
+    border-radius: .5em;
+    float: right;
+}
+
+.form-title{
+    color: white;
+}

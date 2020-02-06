@@ -16,6 +16,7 @@ import {CalendarPage} from "../pages/calendar/calendar";
 
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { ListaCorsi } from '../pages/listacorsi/listacorsi';
+import { DettaglioCorso } from '../pages/dettagliocorso/dettagliocorso';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ListaCorsi } from '../pages/listacorsi/listacorsi';
     Dettagliostruttura,
     Convenzioni,
     CalendarPage,
-    ListaCorsi
+    ListaCorsi,
+    DettaglioCorso
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { ListaCorsi } from '../pages/listacorsi/listacorsi';
     Dettagliostruttura,
     Convenzioni,
     CalendarPage,
-    ListaCorsi
+    ListaCorsi,
+    DettaglioCorso
   ],
   providers: [
     StatusBar,

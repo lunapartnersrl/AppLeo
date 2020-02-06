@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Corso } from '../../model/corso';
+import { DettaglioCorso } from '../dettagliocorso/dettagliocorso';
+import { Color } from '../../model/color';
 
 @Component({
   selector: 'page-listacorsi',
@@ -8,27 +10,28 @@ import { Corso } from '../../model/corso';
 })
 export class ListaCorsi {
 
-
   coursesList: Array<Corso>;
   searchCourseValue: string = "";
   customCoursesList: Array<Corso>;
+  selectedCourse: Corso;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    (navParams.data.title) ? this.selectedCourse = navParams.data : this.selectedCourse = null;
     this.coursesList = [];
-    for(let i = 3; i > 0; i--){
+    for(let i = 10; i > 0; i--){
+      let randomColor = Color[Math.floor(Math.random() * 5)];
       this.coursesList.push(new Corso(
         `Titolo ${i} `,
         `2020-02-04T10:0${i}:35.652Z`,
         `2020-02-05T10:0${i + 1}:35.652Z`,
         'descrizione',
-        'red',
+        randomColor,
         `via Indirizzo, ${i}`,
-        'prof.',
+        'prof. Marco Rossi',
         'Aula A2'
       ));
     }
     this.customCoursesList = this.coursesList;
-    console.log(this.coursesList);
   }
 
   orderByDate(){
@@ -65,4 +68,14 @@ export class ListaCorsi {
     this.customCoursesList = tmp;
   }
 
+  itemIsTapped(event, item){
+    this.navCtrl.setRoot(DettaglioCorso, item);
+  }
+
+  ionViewWillEnter(){
+    if(this.selectedCourse){
+        console.log('there is a course');
+        document.getElementById(this.selectedCourse.getTitle()).scrollIntoView();
+    }
+  }
 }

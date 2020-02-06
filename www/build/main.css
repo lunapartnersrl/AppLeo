@@ -25733,6 +25733,96 @@ ion-navbar.toolbar {
   width: 1em;
 }
 
+.on-the-same-line {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.margin-bottom {
+  margin-bottom: 3.5em;
+}
+
+.padded {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.align-right {
+  text-align: right;
+  margin-right: 0;
+}
+
+.text-grey {
+  color: grey;
+}
+
+.description {
+  color: darkgray;
+  margin-top: 1vh;
+}
+
+.corso-top-img {
+  height: 23vh;
+  width: 100vw;
+  position: relative;
+}
+
+.corso-close-icon {
+  position: absolute;
+  top: .3em;
+  left: .3em;
+}
+
+.social-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: #fafafa;
+  color: #341f97;
+  width: 20vw;
+  height: 20vw;
+  line-height: 20vw;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  -webkit-transition: .4s;
+  transition: .4s;
+  margin-right: 1em;
+  margin-left: .1em;
+  font-size: x-large;
+  border: 0.01em solid #341f97;
+}
+
+.contact-form {
+  background-color: #5f27cd;
+  color: white;
+  border: 1px solid white;
+  border-radius: .5em;
+}
+
+.form-element {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #5f27cd;
+  border-radius: .2em;
+  padding: .4em;
+}
+
+.send-btn {
+  background-color: #341f97;
+  color: white;
+  width: 50%;
+  height: 5vh;
+  border-radius: .5em;
+  float: right;
+}
+
+.form-title {
+  color: white;
+}
+
 .hotel-top-img {
   height: 23vh;
   width: 100vw;
@@ -25782,10 +25872,45 @@ ion-navbar.toolbar {
   border-radius: 12px;
 }
 
-.course-list {
-  border-left: 1em solid red;
+.red {
+  border-left: 1em solid #ff6b6b;
+}
+
+.black {
+  border-left: 1em solid #576574;
+}
+
+.blue {
+  border-left: 1em solid #5f27cd;
+}
+
+.orange {
+  border-left: 1em solid #ff9f43;
+}
+
+.yellow {
+  border-left: 1em solid #feca57;
+}
+
+.green {
+  border-left: 1em solid #1dd1a1;
+}
+
+.card-layout {
+  background-color: #fafafa;
+  border-radius: 1em;
+  border: .1em solid #576574 .1em solid #576574 .1em solid #576574;
+  margin-top: 2em;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .card-content-time {
   color: grey;
+}
+
+.input-search {
+  border-radius: .3em;
 }
