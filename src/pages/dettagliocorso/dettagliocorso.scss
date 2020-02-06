@@ -2,10 +2,19 @@
     display: flex;
 }
 
-.margin-bottom{
-    margin-bottom: 3.5em;
-}
 
+.margin-bottom{
+    margin-bottom: 4em;
+}
+.button1{
+    text-align: center;
+    background-color:#EDEBF6;
+    border: none;
+    color:	#8A8FA5;
+    width: 4.3cm;
+    height: 0.8cm;
+    
+}
 .padded{
     padding-left: 1em;
     padding-right: 1em;
@@ -14,14 +23,15 @@
 .align-right{
     text-align: right;
     margin-right: 0;
+    margin-bottom:0.2em;
 }
 
 .text-grey{
+    margin-bottom: 0.2em;
     color: grey;
 }
 
 .description{
-    color: darkgray;
     margin-top: 1vh;
 }
 
@@ -29,6 +39,7 @@
     height: 23vh;
     width: 100vw;
     position: relative;
+    
 }
 
 .corso-close-icon{
@@ -41,7 +52,7 @@
     display: inline-block;
     text-decoration: none;
     background: #fafafa;
-    color: #341f97;
+    color: #6F6D7A;
     width: 20vw;
     height: 20vw;
     line-height: 20vw;
@@ -57,16 +68,17 @@
 }
 
 .contact-form{
-    background-color: #5f27cd;
+    background-color: #6873B4;
     color: white;
     border: 1px solid white;
     border-radius: .5em;
+    padding: 0.5cm;
 }
 
 .form-element{
     margin-top: 1em;
     margin-bottom: 1em;
-    color: #5f27cd;
+    color: #223571;    ;
     border-radius: .2em;
     padding: .4em;
 }
