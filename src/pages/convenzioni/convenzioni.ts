@@ -12,18 +12,19 @@ import { Dettagliostruttura } from '../dettagliostruttura/dettagliostruttura';
 
 export class Convenzioni{
 
-    selectedStrutturaBefoure: string;
+    selectedStrutturaBefoureId: string;
     selectedConv: string;
     hotelsList: Array<Hotel>;
     restaurantsList: Array<Restaurant>;
 
     constructor(public navCtrl: NavController, public navParams: NavParams){
-        this.selectedConv = navParams.get('selectedConv') || 'hotels';
-        this.selectedStrutturaBefoure = navParams.get('itemName');
+
+        this.selectedConv = navParams.data.selectedConv || 'hotels';
 
         this.hotelsList = [];
         for(let i = 0; i < 10; i++ ){
             this.hotelsList.push(new Hotel(
+                100 + i,
                 `Hotel${i}`,
                 `Via indirizzo, ${i + 20}`,
                 `333 ${i}${i%2} ${i}4 560`,
@@ -33,9 +34,12 @@ export class Convenzioni{
             ));
         }
 
+        this.selectedStrutturaBefoureId = navParams.data.itemId || null;
+
         this.restaurantsList = [];
         for(let i = 0; i < 10; i++ ){
             this.restaurantsList.push(new Restaurant(
+                200 + i,
                 `Ristorante${i}`,
                 `Via indirizzo, ${i + 20}`,
                 `333 ${i}${i%2} ${i}4 560`,
@@ -44,18 +48,13 @@ export class Convenzioni{
                 'mediterranea',
             ));
         }
-
-
     }
 
     itemTapped(event, item) {
-        this.navCtrl.setRoot(Dettagliostruttura, {
-            item
-        });
+        this.navCtrl.setRoot(Dettagliostruttura, item);
     }
 
     ionViewWillEnter(){
-        if(this.selectedStrutturaBefoure)
-            document.getElementById(this.selectedStrutturaBefoure).scrollIntoView();
+        if(this.selectedStrutturaBefoureId) document.getElementById(this.selectedStrutturaBefoureId).scrollIntoView();
     }
 }

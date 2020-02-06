@@ -25,7 +25,7 @@
                 no-lines
                 *ngFor="let item of hotelsList"
                 (click)="itemTapped($event, item)">
-                <ion-card class="card" [id]='item.name' no-padding >
+                <ion-card class="card" [id]="item.getId()" no-padding >
                     <img [src]=item.getImgPath() class="card-img"/>
                     <ion-card-content class="card-content-right">
                         <ion-card-title>
@@ -57,7 +57,7 @@
                 no-lines
                 *ngFor="let item of restaurantsList"
                 (click)="itemTapped($event, item)">
-                <ion-card class="card" [id]='item.name' no-padding >
+                <ion-card class="card" [id]="item.getId()" no-padding >
                     <img [src]=item.getImgPath() class="card-img"/>
                     <ion-card-content class="card-content-right">
                         <ion-card-title>

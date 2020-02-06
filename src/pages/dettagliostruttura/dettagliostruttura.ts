@@ -29,18 +29,19 @@ export class Dettagliostruttura {
     constructor(public navCtrl: NavController, public navParams: NavParams){
 		this.hotel =  null;
 		this.restaurant = null;
-		let inputItem: any = navParams.get('item');
+		let inputItem: any = navParams.data;
+		console.log(navParams);
+		console.log(navParams.data);
 		'price' in inputItem ? this.hotel = inputItem : this.restaurant = inputItem;
 		this.struttura = this.hotel ? this.hotel : this.restaurant;
     }
 
-	
+
 	ionViewDidLoad() {
 		this.loadMap();
 	}
 
 	loadMap() {
-		
 		/* precondition to access location =>
 			A.the object hotel/restaurant will also have a property
 			location:{lat: x, lng: y}
@@ -49,12 +50,10 @@ export class Dettagliostruttura {
 			B. if we have only the address we have to do the geolocation
 			of it, to get the lat, lng from the address
 		*/
-
 		Environment.setEnv({
 			'API_KEY_FOR_BROWSER_RELEASE': '',
 			'API_KEY_FOR_BROWSER_DEBUG': ''
 		});
-
 		let mapOptions: GoogleMapOptions = {
 			camera: {
 				target: {
@@ -66,7 +65,6 @@ export class Dettagliostruttura {
 			}
 		};
 		this.map = GoogleMaps.create('map_canvas', mapOptions);
-
 		let marker: Marker = this.map.addMarkerSync({
 			title: 'larix',
 			icon: 'blue',
@@ -76,13 +74,12 @@ export class Dettagliostruttura {
 				lng: -89.3809802
 			}
 		});
-
 	}
 
-    backToConvenzioni(event, selectedConv, itemName){
+    backToConvenzioni(event, selectedConv, itemId){
         this.navCtrl.setRoot(Convenzioni, {
             selectedConv: this.hotel ? 'hotels' : 'restaurants',
-            itemName: this.hotel ? this.hotel.getName() : this.restaurant.getName(),
+            itemId: this.hotel ? this.hotel.getId().toString() : this.restaurant.getId().toString(),
         });
 	}
 }
