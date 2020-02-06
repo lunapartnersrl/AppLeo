@@ -4,8 +4,8 @@ export class Restaurant extends Struttura{
 
     private cucina: string;
 
-    constructor(name: string, address: string, telNumber: string, description: string, imgPath: string, cucina: string){
-        super(name, address, telNumber, description, imgPath);
+    constructor(id: number, name: string, address: string, telNumber: string, description: string, imgPath: string, cucina: string){
+        super(id, name, address, telNumber, description, imgPath);
         this.cucina = cucina;
     }
 
