@@ -25751,7 +25751,16 @@ ion-navbar.toolbar {
 }
 
 .margin-bottom {
-  margin-bottom: 3.5em;
+  margin-bottom: 4em;
+}
+
+.button1 {
+  text-align: center;
+  background-color: #EDEBF6;
+  border: none;
+  color: #8A8FA5;
+  width: 4.3cm;
+  height: 0.8cm;
 }
 
 .padded {
@@ -25762,14 +25771,15 @@ ion-navbar.toolbar {
 .align-right {
   text-align: right;
   margin-right: 0;
+  margin-bottom: 0.2em;
 }
 
 .text-grey {
+  margin-bottom: 0.2em;
   color: grey;
 }
 
 .description {
-  color: darkgray;
   margin-top: 1vh;
 }
 
@@ -25789,7 +25799,7 @@ ion-navbar.toolbar {
   display: inline-block;
   text-decoration: none;
   background: #fafafa;
-  color: #341f97;
+  color: #6F6D7A;
   width: 20vw;
   height: 20vw;
   line-height: 20vw;
@@ -25806,16 +25816,17 @@ ion-navbar.toolbar {
 }
 
 .contact-form {
-  background-color: #5f27cd;
+  background-color: #6873B4;
   color: white;
   border: 1px solid white;
   border-radius: .5em;
+  padding: 0.5cm;
 }
 
 .form-element {
   margin-top: 1em;
   margin-bottom: 1em;
-  color: #5f27cd;
+  color: #223571;
   border-radius: .2em;
   padding: .4em;
 }
@@ -25861,12 +25872,10 @@ ion-navbar.toolbar {
 
 .btn-call {
   height: 60px;
-  background-color: #4CE4A7;
+  background-color: #3EC18D;
   color: whitesmoke;
   margin-top: 2em;
-}
-
-.btn-call {
+  z-index: -1;
   border-radius: 12px;
 }
 
@@ -25923,4 +25932,37 @@ ion-navbar.toolbar {
 
 .input-search {
   border-radius: .3em;
+}
+
+.loading-courses-card-text-one {
+  background-color: #dfe6e9;
+  border-radius: .4em;
+  color: #dfe6e9;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  height: 100%;
+  font-size: xx-small;
+  width: 70vw;
+}
+
+.loading-courses-card-text-two {
+  background-color: #dfe6e9;
+  border-radius: .4em;
+  color: #dfe6e9;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  height: 100%;
+  font-size: xx-small;
+  width: 60vw;
+}
+
+.loading-courses-card-text-three {
+  background-color: #dfe6e9;
+  border-radius: .4em;
+  color: #dfe6e9;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  height: 100%;
+  font-size: xx-small;
+  width: 40vw;
 }
