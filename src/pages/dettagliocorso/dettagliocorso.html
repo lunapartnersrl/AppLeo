@@ -5,7 +5,7 @@
 
 <ion-content   >
     <div no-padding >
-        <img 
+        <img
         src="/assets/imgs/hotel1.jpg"
         class="corso-top-img"
         alt="Immagine del corso" />
@@ -24,7 +24,7 @@
     </button>
 
     <div >
-        <h1 ion-text color="dark">{{corso.getTitle()}}</h1>
+        <h1 ion-text color="dark">{{corso.courseTitle}}</h1>
         <p ion-text color="dark" class="on-the-same-line">
             <span>Martedì 24 Marzo</span>
             <span class="padded">*</span>
@@ -41,19 +41,19 @@
         <div>
             <ion-item no-padding>
                 <ion-label class="text-grey">Dove</ion-label>
-                <ion-label class="align-right">{{corso.getAddress()}}</ion-label>
+                <ion-label class="align-right">{{corso.hqCity}}</ion-label>
             </ion-item>
             <ion-item no-padding>
                 <ion-label class="text-grey">Aula</ion-label>
-                <ion-label class="align-right">{{corso.getClassroom()}}A</ion-label>
+                <ion-label class="align-right">{{corso.lessonLocation}}A</ion-label>
             </ion-item>
             <ion-item no-padding>
                 <ion-label class="text-grey">Docente / Relatore</ion-label>
-                <ion-label class="align-right">{{corso.getTeacher()}}</ion-label>
+                <ion-label class="align-right">{{corso.courseTrainer}}</ion-label>
             </ion-item>
             <ion-item no-padding>
                 <ion-label class="text-grey">Durata</ion-label>
-                <ion-label class="align-right">{{corso.getTimeDuration()}}</ion-label>
+                <ion-label class="align-right">11 minuti</ion-label>
             </ion-item>
             <ion-item no-padding>
                 <ion-label class="text-grey" position="stacked">Descrizione</ion-label>

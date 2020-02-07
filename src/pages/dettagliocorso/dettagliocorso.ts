@@ -12,6 +12,7 @@ export class DettaglioCorso{
     corso: Corso = null;
 
     constructor(public navCtrl: NavController, public navParams: NavParams){
+        console.log(navParams.data);
         this.corso = navParams.data;
     }
 
