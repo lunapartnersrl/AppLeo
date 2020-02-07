@@ -26,11 +26,12 @@
 
 .btn-call{
     height: 60px;
-    background-color: #4CE4A7;
+    background-color: #3EC18D;
     color: whitesmoke;
     margin-top:2em;
+    z-index: -1;
+    border-radius: 12px;
 }
-.btn-call {border-radius: 12px;}
 
 #tmp-div{
     height: 25vh;
