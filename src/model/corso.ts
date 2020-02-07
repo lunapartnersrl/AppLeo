@@ -1,7 +1,69 @@
-import { Color } from "./color";
 
+export const formatLessons = (lessonObj: any, id: string) => {
+    //console.log('...formatting lesson element');
+    try{
+        //input string: take only the obj-like formatted part
+        var mySubString = lessonObj.substring(
+            lessonObj.lastIndexOf("[") + 1,
+            lessonObj.lastIndexOf("]")
+        );
+
+        //sobstitute '' => ""
+        let formattedString = mySubString.replace(/'/g, '"');
+
+        //make it an object to access its properties
+        let objLessons = JSON.parse(formattedString);
+
+        //console.log('...lesson has been formatted correctly')
+        return objLessons;
+    }catch(err){
+        //console.log('...error while formatting the lesson: \n');
+        //console.log(`-> the bad element has id = [${id}] \n` );
+        //console.log('! The element MUST be FIXED !');
+        return "Wrong API data";
+    }
+
+}
+
+export interface Corso{
+    courseId: string;
+    courseTitle: string;
+    courseSubtitle: string;
+    courseRecipients: string;
+    courseAbstract: string;
+    courseNote: string;
+    coursePrerequisite: string;
+    courseSeats: string;
+    courseTrainers: string;
+    courseLink: string;
+
+    lessonObj: any;
+    lessonDate: string;
+    lessonTimeStart: string;
+    lessonTimeEnd: string;
+    lessonLocation: string;
+
+    catId: string;
+    catShort: string;
+    catTitle: string;
+
+    tipId: string;
+    tipShort: string;
+    tipTitle: string;
+
+    hqId: string;
+    hqMunicipality: string;
+    hqCity: string;
+
+    color: string;
+}
+
+/*
 export class Corso{
-
+this._lessonDate = objLessons.lez_data;
+        this._lessonTimeStart = objLessons.lez_orainiz;
+        this._lessonTimeEnd = objLessons.lez_orafin;
+        this._lessonLocation = objLessons.lez_luogo
     private _courseId: string;
     private _courseTitle: string;
     private _courseSubtitle: string;
@@ -67,54 +129,6 @@ export class Corso{
 
                     this._color = Color[color] || Color.black;
     }
-
-    formatLessons(lessonObj: any){
-        console.log(lessonObj);
-        //input string: take only the obj-like formatted part
-        var mySubString = lessonObj.substring(
-            lessonObj.lastIndexOf("[") + 1,
-            lessonObj.lastIndexOf("]")
-        );
-        //sobstitute '' => ""
-        let formattedString = mySubString.replace(/''/g,"");
-        //make it an object to access its properties
-        let objLessons = JSON.parse(formattedString);
-
-        this._lessonDate = objLessons.lez_data;
-        this._lessonTimeStart = objLessons.lez_orainiz;
-        this._lessonTimeEnd = objLessons.lez_orafin;
-        this._lessonLocation = objLessons.lez_luogo
-    }
-
-    public get courseId(): string { return this._courseId}
-	public get courseTitle(): string { return this._courseTitle }
-    public get courseSubtitle(): string { return this._courseSubtitle }
-    public get courseRecipients(): string { return this._courseRecipients }
-	public get courseAbstract(): string { return this._courseAbstract }
-	public get courseNote(): string { return this._courseNote }
-	public get coursePrerequisite(): string { return this._coursePrerequisite }
-	public get courseSeats(): string { return this._courseSeats }
-	public get courseTrainers(): string { return this._courseTrainers }
-	public get courseLink(): string { return this._courseLink }
-
-	public get lessonDate(): string { return this._lessonDate }
-	public get lessonTimeStart(): string { return this._lessonTimeStart }
-	public get lessonTimeEnd(): string { return this._lessonTimeEnd }
-    public get lessonLocation(): string { return this._lessonLocation }
-
-    public get catId(): string { return this._catId }
-	public get catShort(): string { return this._catShort }
-	public get catTitle(): string { return this._catTitle }
-
-	public get tipId(): string { return this._tipId }
-	public get tipShort(): string { return this._tipShort }
-	public get tipTitle(): string { return this._tipTitle }
-
-    public hqId(): string { return this._hqId }
-    public hqMunicipality(): string { return this._hqMunicipality }
-    public hqCity(): string { return this._hqCity }
-
-    public color(): string { return Color[this._color] }
-
 }
+*/
 
