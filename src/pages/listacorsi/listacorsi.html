@@ -20,7 +20,6 @@
       <p>Ordina per</p>
       <button ion-button icon-start color="light"
         (click)="orderByDate()"
-
       >
         <ion-icon name="calendar"></ion-icon>
         Data
@@ -33,24 +32,37 @@
       </button>
 
     </ion-item>
-
-      <ion-card
-        no-lines
-        no-padding
-        *ngFor="let item of customCoursesList"
-        (click)="itemIsTapped($event, item)"
-        [id]="item.getTitle()"
-        class="card-layout {{item.getColor()}}"
-      >
-        <ion-card-header>
-          {{ item.courseTitle }}
-        </ion-card-header>
-        <ion-card-content>
-          <div class="card-content-date"> data 1 > data 2</div>
-          <div class="card-content-time">11:20 > 13:00</div>
-        </ion-card-content>
-      </ion-card>
-
-
-
+    <div *ngIf="isLoading; then loaderSection; else coursesCards"></div>
+      <ng-template #loaderSection>
+        <ion-card
+            no-lines
+            no-padding
+            *ngFor="let tmpCard of ['red', 'black', 'green', 'yellow', 'blue', 'orange']"
+            class="card-layout {{tmpCard}}"
+          >
+            <ion-card-content >
+              <div class="card-content-date loading-courses-card-text-one">loading dates</div>
+              <div class="card-content-date loading-courses-card-text-two">loading dates</div>
+              <div class="card-content-time loading-courses-card-text-three">loading times</div>
+            </ion-card-content>
+          </ion-card>
+      </ng-template>
+      <ng-template #coursesCards>
+          <ion-card
+            no-lines
+            no-padding
+            *ngFor="let item of customCoursesList"
+            (click)="itemIsTapped($event, item)"
+            [id]="item.courseTitle"
+            class="card-layout {{item.color}}"
+          >
+            <ion-card-header>
+              {{ item.courseTitle }}
+            </ion-card-header>
+            <ion-card-content>
+              <div class="card-content-date"> {{ item.lessonDate || 'no data provided' }} </div>
+              <div class="card-content-time"> {{ item.lessonTimeStart || 'no time provided' }} > {{ item.lessonTimeEnd || 'no time provided'}}</div>
+            </ion-card-content>
+          </ion-card>
+      </ng-template>
 </ion-content>
