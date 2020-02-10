@@ -4,71 +4,12 @@ webpackJsonp([1],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Convenzioni; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_hotel__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__model_restaurant__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dettagliostruttura_dettagliostruttura__ = __webpack_require__(202);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var Convenzioni = /** @class */ (function () {
-    function Convenzioni(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.selectedConv = navParams.data.selectedConv || 'hotels';
-        this.hotelsList = [];
-        for (var i = 0; i < 10; i++) {
-            this.hotelsList.push(new __WEBPACK_IMPORTED_MODULE_2__model_hotel__["a" /* Hotel */](100 + i, "Hotel" + i, "Via indirizzo, " + (i + 20), "333 " + i + i % 2 + " " + i + "4 560", "descrizione", '/assets/imgs/hotel1.jpg', i * 30));
-        }
-        this.selectedStrutturaBefoureId = navParams.data.itemId || null;
-        this.restaurantsList = [];
-        for (var i = 0; i < 10; i++) {
-            this.restaurantsList.push(new __WEBPACK_IMPORTED_MODULE_3__model_restaurant__["a" /* Restaurant */](200 + i, "Ristorante" + i, "Via indirizzo, " + (i + 20), "333 " + i + i % 2 + " " + i + "4 560", "descrizione", '/assets/imgs/hotel1.jpg', 'mediterranea'));
-        }
-    }
-    Convenzioni.prototype.itemTapped = function (event, item) {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__dettagliostruttura_dettagliostruttura__["a" /* Dettagliostruttura */], item);
-    };
-    Convenzioni.prototype.ionViewWillEnter = function () {
-        if (this.selectedStrutturaBefoureId)
-            document.getElementById(this.selectedStrutturaBefoureId).scrollIntoView();
-    };
-    Convenzioni = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-convenzioni',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/convenzioni/convenzioni.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Convenzioni</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <div padding>\n        <ion-segment [(ngModel)]="selectedConv">\n          <ion-segment-button value="hotels">\n            Hotel\n          </ion-segment-button>\n          <ion-segment-button value="restaurants">\n            Ristoranti\n          </ion-segment-button>\n        </ion-segment>\n    </div>\n\n    <div [ngSwitch]="selectedConv">\n        <div *ngSwitchCase="\'hotels\'">\n            <ion-item\n                no-lines\n                *ngFor="let item of hotelsList"\n                (click)="itemTapped($event, item)">\n                <ion-card class="card" [id]="item.getId()" no-padding >\n                    <img [src]=item.getImgPath() class="card-img"/>\n                    <ion-card-content class="card-content-right">\n                        <ion-card-title>\n                            {{item.getName()}}\n                        </ion-card-title>\n                        <div>\n\n                            <p>\n                                <ion-icon slot="start" class="icon-spacing" name="logo-euro"></ion-icon>\n                                {{item.getFormattedPrice()}}\n                            </p>\n\n                            <p>\n                                <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>\n                                {{item.getAddress()}}\n                            </p>\n\n                            <p>\n                                <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>\n                                {{item.getTelNumber()}}\n                            </p>\n                        </div>\n                    </ion-card-content>\n                </ion-card>\n            </ion-item>\n        </div>\n        <div *ngSwitchCase="\'restaurants\'">\n            <ion-item\n                no-lines\n                *ngFor="let item of restaurantsList"\n                (click)="itemTapped($event, item)">\n                <ion-card class="card" [id]="item.getId()" no-padding >\n                    <img [src]=item.getImgPath() class="card-img"/>\n                    <ion-card-content class="card-content-right">\n                        <ion-card-title>\n                            {{item.getName()}}\n                        </ion-card-title>\n                        <div>\n\n                            <p>\n                                <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>\n                                {{item.getAddress()}}\n                            </p>\n\n                            <p>\n                                <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>\n                                {{item.getTelNumber()}}\n                            </p>\n                        </div>\n                    </ion-card-content>\n                </ion-card>\n            </ion-item>\n        </div>\n    </div>\n  </ion-content>'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/convenzioni/convenzioni.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-    ], Convenzioni);
-    return Convenzioni;
-}());
-
-//# sourceMappingURL=convenzioni.js.map
-
-/***/ }),
-
-/***/ 103:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaCorsi; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_corso__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dettagliocorso_dettagliocorso__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__model_color__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_corso__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dettagliocorso_dettagliocorso__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__model_color__ = __webpack_require__(279);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -193,24 +134,23 @@ var ListaCorsi = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-listacorsi',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/listacorsi/listacorsi.html"*/'<ion-header>\n    <ion-navbar padding>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-item no-lines class="input-search">\n        <ion-input\n          type="text"\n          placeholder="Cerca il corso"\n          [(ngModel)]="searchCourseValue"\n          (ngModelChange)="onSearchInputChange()"\n        >\n        </ion-input>\n      </ion-item>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-item no-lines no-padding>\n      <p>Ordina per</p>\n      <button ion-button icon-start color="light"\n        (click)="orderByDate()"\n      >\n        <ion-icon name="calendar"></ion-icon>\n        Data\n      </button>\n      <button ion-button icon-start color="light"\n        (click)="orderByTitle()"\n      >\n        <ion-icon name="list"></ion-icon>\n        Ordine alfaberico\n      </button>\n\n    </ion-item>\n    <div *ngIf="isLoading; then loaderSection; else coursesCards"></div>\n      <ng-template #loaderSection>\n        <ion-card\n            no-lines\n            no-padding\n            *ngFor="let tmpCard of [\'red\', \'black\', \'green\', \'yellow\', \'blue\', \'orange\']"\n            class="card-layout {{tmpCard}}"\n          >\n            <ion-card-content >\n              <div class="card-content-date loading-courses-card-text-one">loading dates</div>\n              <div class="card-content-date loading-courses-card-text-two">loading dates</div>\n              <div class="card-content-time loading-courses-card-text-three">loading times</div>\n            </ion-card-content>\n          </ion-card>\n      </ng-template>\n      <ng-template #coursesCards>\n          <ion-card\n            no-lines\n            no-padding\n            *ngFor="let item of customCoursesList"\n            (click)="itemIsTapped($event, item)"\n            [id]="item.courseTitle"\n            class="card-layout {{item.color}}"\n          >\n            <ion-card-header>\n              {{ item.courseTitle }}\n            </ion-card-header>\n            <ion-card-content>\n              <div class="card-content-date"> {{ item.lessonDate || \'no data provided\' }} </div>\n              <div class="card-content-time"> {{ item.lessonTimeStart || \'no time provided\' }} > {{ item.lessonTimeEnd || \'no time provided\'}}</div>\n            </ion-card-content>\n          </ion-card>\n      </ng-template>\n</ion-content>'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/listacorsi/listacorsi.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], ListaCorsi);
     return ListaCorsi;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=listacorsi.js.map
 
 /***/ }),
 
-/***/ 104:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic2_calendar_calendar__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic2_calendar_calendar__ = __webpack_require__(154);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -331,7 +271,7 @@ var CalendarPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-calendar',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/calendar/calendar.html"*/'<!--\n  Generated template for the CalendarPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Calendar</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <calendar [eventSource]="eventSource"\n            [calendarMode]="calendar.mode"\n            [currentDate]="calendar.currentDate"\n            (onTitleChanged)="onViewTitleChanged($event)"\n            (onTimeSelected)="onTimeSelected($event)"\n            step="30">\n\n  </calendar>\n</ion-content>\n'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/calendar/calendar.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], CalendarPage);
     return CalendarPage;
 }());
@@ -340,7 +280,7 @@ var CalendarPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 113:
+/***/ 112:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -353,16 +293,16 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 113;
+webpackEmptyAsyncContext.id = 112;
 
 /***/ }),
 
-/***/ 154:
+/***/ 153:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/calendar/calendar.module": [
-		295,
+		292,
 		0
 	]
 };
@@ -377,12 +317,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 154;
+webpackAsyncContext.id = 153;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 199:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -408,7 +348,7 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>Home</h3>\n  <p>\n    This is the home page\n  </p>\n</ion-content>\n'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
     ], HomePage);
     return HomePage;
 }());
@@ -417,7 +357,7 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 200:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -443,7 +383,7 @@ var AboutUs = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core___["m" /* Component */])({
             selector: 'page-aboutus',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/aboutus/aboutus.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h3>Chi siamo </h3>\n    <p>\n        <i ion-text color="primary">Learning Expressions On-the-job </i>è un ambiente formativo attraverso il quale gli insegnanti\n        possono inventare ed innovare didattiche e metodi, pensando e sperimentando, osservando e facendo,\n        vivendo esperienze di apprendimento profondo, in contesti cooperativi guidati dai migliori esperti.<br>\n        I percorsi multipli, scelti da ogni insegnante su misura.\n        L\'offerta sarà principalmente erogata presso i locali di Spazio Leo, alle scuole Mattarella di Modena,\n        dove la scelta delle soluzioni architettoniche e della strumentazione presente vuole sottolineare\n        ed essere parte integrante di un processo di innovazione della didattica.<br>\n        Spazio Leo propone conferenze, giornate formative fatte di introduzioni in plenaria e laboratori di approfondimento,\n         incontri spot.<br> A giugno ci saranno un camp residenziale lungo per docenti e una due giorni espressamente\n         dedicata agli animatori digitali.<br><br><br>\n        Alle attività di Spazio Leo ci si iscriverà \n        <a href="https://iscrizioni.istruzioneer.it/site/corsi">qui:</a> (a breve disponibili).\n        Info e link anche sui social di Spazio Leo / IC3 Modena.\n    </p>\n    \n    <h4 style="text-align: center;">Contattaci</h4>\n    <p style="color: black; text-align:center;">\n        <ion-icon name="logo-twitter"></ion-icon>\n        <ion-icon name="logo-instagram"></ion-icon>\n        <ion-icon name="logo-facebook"></ion-icon>\n        <ion-icon name="mail"></ion-icon>\n    </p>\n</ion-content>\n'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/aboutus/aboutus.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
     ], AboutUs);
     return AboutUs;
 }());
@@ -452,54 +392,82 @@ var AboutUs = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 200:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Convenzioni; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dettagliostruttura_dettagliostruttura__ = __webpack_require__(201);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var Convenzioni = /** @class */ (function () {
+    function Convenzioni(navCtrl, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.modalCtrl = modalCtrl;
+        this.selectedConv = 'hotels';
+        this.hotelsList = [];
+        for (var i = 0; i < 10; i++) {
+            this.hotelsList.push({
+                id: 100 + i,
+                name: "Hotel" + i,
+                address: "Via indirizzo, " + (i + 20),
+                telNumber: "333 " + i + i % 2 + " " + i + "4 560",
+                description: "descrizione",
+                imgPath: '/assets/imgs/hotel1.jpg',
+                price: i * 30,
+            });
+        }
+        this.restaurantsList = [];
+        for (var i = 0; i < 10; i++) {
+            this.restaurantsList.push({
+                id: 200 + i,
+                name: "Ristorante" + i,
+                address: "Via indirizzo, " + (i + 20),
+                telNumber: "333 " + i + i % 2 + " " + i + "4 560",
+                description: "descrizione",
+                imgPath: '/assets/imgs/hotel1.jpg',
+                cucina: 'mediterranea',
+            });
+        }
+    }
+    Convenzioni.prototype.openModal = function (item) {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__dettagliostruttura_dettagliostruttura__["a" /* Dettagliostruttura */], item);
+        modal.present();
+    };
+    Convenzioni = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-convenzioni',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/convenzioni/convenzioni.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Convenzioni</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <div padding>\n        <ion-segment [(ngModel)]="selectedConv">\n          <ion-segment-button value="hotels">\n            Hotel\n          </ion-segment-button>\n          <ion-segment-button value="restaurants">\n            Ristoranti\n          </ion-segment-button>\n        </ion-segment>\n    </div>\n\n    <div [ngSwitch]="selectedConv">\n        <div *ngSwitchCase="\'hotels\'">\n            <ion-card\n                [id]="item.id"\n                *ngFor="let item of hotelsList"\n                class="card"\n                (click)="openModal(item)"\n            >\n                <img [src]=item.imgPath class="card-img"/>\n                <ion-card-header>\n                    {{item.name}}\n                </ion-card-header>\n                <ion-card-content class="card-content-right">\n                    <div>\n                        <ion-icon slot="start" class="icon-spacing" name="logo-euro"></ion-icon>\n                        {{item.price}}\n                    </div>\n                    <div>\n                        <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>\n                        {{item.address}}\n                    </div>\n                    <div>\n                        <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>\n                        {{item.telNumber}}\n                    </div>\n                </ion-card-content>\n            </ion-card>\n        </div>\n        <div *ngSwitchCase="\'restaurants\'">\n            <ion-card\n                *ngFor="let item of restaurantsList"\n                class="card"\n                [id]="item.id"\n\n                (click)="openModal(item)"\n            >\n                <img [src]=item.imgPath class="card-img"/>\n                <ion-card-header>\n                        {{item.name}}\n                </ion-card-header>\n                <ion-card-content class="card-content-right">\n                    <div>\n                        <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>\n                        {{item.address}}\n                    </div>\n                    <div>\n                        <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>\n                        {{item.telNumber}}\n                    </div>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n  </ion-content>'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/convenzioni/convenzioni.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */]])
+    ], Convenzioni);
+    return Convenzioni;
+}());
+
+//# sourceMappingURL=convenzioni.js.map
+
+/***/ }),
+
 /***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Struttura; });
-var Struttura = /** @class */ (function () {
-    function Struttura(id, name, address, telNumber, description, imgPath) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.telNumber = telNumber;
-        this.description = description;
-        this.imgPath = imgPath;
-    }
-    Struttura.prototype.getId = function () {
-        return this.id;
-    };
-    Struttura.prototype.getName = function () {
-        return this.name;
-    };
-    Struttura.prototype.getAddress = function () {
-        return this.address;
-    };
-    Struttura.prototype.getTelNumber = function () {
-        return this.telNumber;
-    };
-    Struttura.prototype.getDescription = function () {
-        return this.description;
-    };
-    Struttura.prototype.getImgPath = function () {
-        return this.imgPath;
-    };
-    return Struttura;
-}());
-
-//# sourceMappingURL=struttura.js.map
-
-/***/ }),
-
-/***/ 202:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Dettagliostruttura; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_google_maps__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_google_maps__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__convenzioni_convenzioni__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_navigation_view_controller__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -514,8 +482,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var Dettagliostruttura = /** @class */ (function () {
-    function Dettagliostruttura(navCtrl, navParams) {
+    function Dettagliostruttura(navCtrl, viewCtrl, navParams) {
         this.navCtrl = navCtrl;
+        this.viewCtrl = viewCtrl;
         this.navParams = navParams;
         this.hotel = null;
         this.restaurant = null;
@@ -562,17 +531,14 @@ var Dettagliostruttura = /** @class */ (function () {
             }
         });
     };
-    Dettagliostruttura.prototype.backToConvenzioni = function (event, selectedConv, itemId) {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__convenzioni_convenzioni__["a" /* Convenzioni */], {
-            selectedConv: this.hotel ? 'hotels' : 'restaurants',
-            itemId: this.hotel ? this.hotel.getId().toString() : this.restaurant.getId().toString(),
-        });
+    Dettagliostruttura.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
     };
     Dettagliostruttura = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-dettagliostruttura',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/dettagliostruttura/dettagliostruttura.html"*/'<ion-header>\n</ion-header>\n\n<ion-content>\n    <img\n        [src]=struttura.getImgPath()\n        class="hotel-top-img"\n        alt="Hotel image" />\n    <button\n        ion-button\n        icon-only\n        clear\n        large\n        color="light"\n        class="hotel-close-icon"\n        (click)="backToConvenzioni()"\n    >\n        <ion-icon name="close-circle" ></ion-icon>\n    </button>\n    <div padding>\n        <h3>{{struttura.getName()}}</h3>\n        <ion-item no-padding>\n            <ion-label class="text-grey">Indirizzo</ion-label>\n            <ion-label class="align-right">{{struttura.getAddress()}}</ion-label>\n        </ion-item>\n        <ion-item no-padding>\n            <ion-label class="text-grey">Numero</ion-label>\n            <ion-label class="align-right">{{struttura.getTelNumber()}}</ion-label>\n        </ion-item>\n\n        <div *ngIf="restaurant; then restaurantBlock"></div>\n        <ng-template #restaurantBlock>\n          <ion-item no-padding>\n            <ion-label class="text-grey">Cucina</ion-label>\n            <ion-label class="align-right">{{struttura.getCucina()}}</ion-label>\n          </ion-item>\n        </ng-template>\n\n        <ion-item no-padding>\n            <ion-label class="text-grey" position="stacked">Descrizione</ion-label>\n        </ion-item>\n        <p class="description">\n            {{struttura.getDescription()}}\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n            Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n            Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n        </p>\n\n        <!-- start -- gmaps preview-->\n        <div id="map_canvas" #map_canvas></div>\n        <!-- end -- gmaps preview -->\n        <button\n            ion-button\n            block\n            class="btn-call"\n        >\n            Chiama\n        </button>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/dettagliostruttura/dettagliostruttura.html"*/,
+            selector: 'page-dettagliostruttura',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/dettagliostruttura/dettagliostruttura.html"*/'<ion-header>\n</ion-header>\n\n<ion-content class="bg-custom-white">\n        <img\n            [src]=struttura.imgPath\n            class="hotel-top-img"\n            alt="Hotel image" />\n        <button\n            ion-button\n            icon-only\n            clear\n            large\n            color="light"\n            class="hotel-close-icon"\n            (click)="dismiss()"\n        >\n            <ion-icon name="close-circle" ></ion-icon>\n        </button>\n        <div padding>\n            <h3>{{struttura.name}}</h3>\n            <ion-item no-padding class="bg-custom-white">\n                <ion-label class="text-grey">Indirizzo</ion-label>\n                <ion-label class="align-right">{{struttura.address}}</ion-label>\n            </ion-item>\n            <ion-item no-padding class="bg-custom-white">\n                <ion-label class="text-grey">Numero</ion-label>\n                <ion-label class="align-right">{{struttura.telNumber}}</ion-label>\n            </ion-item>\n\n            <div *ngIf="restaurant; then restaurantBlock"></div>\n            <ng-template #restaurantBlock>\n            <ion-item no-padding class="bg-custom-white">\n                <ion-label class="text-grey">Cucina</ion-label>\n                <ion-label class="align-right">{{struttura.cucina}}</ion-label>\n            </ion-item>\n            </ng-template>\n\n            <ion-item no-padding class="bg-custom-white">\n                <ion-label class="text-grey" position="stacked">Descrizione</ion-label>\n            </ion-item>\n            <div class="description">\n                {{struttura.description}}\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n                Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n                Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n                Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n                Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n                Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n                Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n                Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n            </div>\n\n\n        <!-- start -- gmaps preview-->\n        <div id="map_canvas" #map_canvas></div>\n        <!-- end -- gmaps preview -->\n\n    </div>\n</ion-content>\n<ion-footer class="footer">\n    <ion-toolbar>\n        <button\n            class="btn-bottom"\n        >\n        Chiama\n    </button>\n    </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/dettagliostruttura/dettagliostruttura.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular_navigation_view_controller__["a" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */]])
     ], Dettagliostruttura);
     return Dettagliostruttura;
 }());
@@ -581,14 +547,14 @@ var Dettagliostruttura = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 204:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DettaglioCorso; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__listacorsi_listacorsi__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__listacorsi_listacorsi__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -602,9 +568,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var DettaglioCorso = /** @class */ (function () {
-    function DettaglioCorso(navCtrl, navParams) {
+    function DettaglioCorso(navCtrl, navParams, viewCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
         this.corso = null;
         console.log(navParams.data);
         this.corso = navParams.data;
@@ -616,23 +583,22 @@ var DettaglioCorso = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-dettagliocorso',template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/dettagliocorso/dettagliocorso.html"*/'<ion-header >\n\n</ion-header >\n\n\n<ion-content   >\n    <div no-padding >\n        <img\n        src="/assets/imgs/hotel1.jpg"\n        class="corso-top-img"\n        alt="Immagine del corso" />\n    </div>\n<div padding >\n    <button\n        ion-button\n        icon-only\n        clear\n        large\n        color="light"\n        class="corso-close-icon"\n        (click)="backToListaCorsi()"\n    >\n        <ion-icon name="close-circle" ></ion-icon>\n    </button>\n\n    <div >\n        <h1 ion-text color="dark">{{corso.courseTitle}}</h1>\n        <p ion-text color="dark" class="on-the-same-line">\n            <span>Martedì 24 Marzo</span>\n            <span class="padded">*</span>\n            <span>18:00 - 19:00</span>\n        </p>\n\n        <button class="button1" >\n            Iscrizioni\n        </button>\n        <button class="button1" >\n            Attestati\n        </button>\n\n        <div>\n            <ion-item no-padding>\n                <ion-label class="text-grey">Dove</ion-label>\n                <ion-label class="align-right">{{corso.hqCity}}</ion-label>\n            </ion-item>\n            <ion-item no-padding>\n                <ion-label class="text-grey">Aula</ion-label>\n                <ion-label class="align-right">{{corso.lessonLocation}}A</ion-label>\n            </ion-item>\n            <ion-item no-padding>\n                <ion-label class="text-grey">Docente / Relatore</ion-label>\n                <ion-label class="align-right">{{corso.courseTrainer}}</ion-label>\n            </ion-item>\n            <ion-item no-padding>\n                <ion-label class="text-grey">Durata</ion-label>\n                <ion-label class="align-right">11 minuti</ion-label>\n            </ion-item>\n            <ion-item no-padding>\n                <ion-label class="text-grey" position="stacked">Descrizione</ion-label>\n            </ion-item>\n            <p class="description" style="color: black;">\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Etiam vel nisi sodales, venenatis tortor et, molestie nibh.\n                Nullam mi leo, pulvinar sit amet tincidunt placerat, viverra eu tortor.\n            </p>\n            <ion-item no-padding>\n                <ion-label class="text-grey" position="stacked">Condividi</ion-label>\n            </ion-item>\n            <p class="on-the-same-line margin-bottom">\n                <button class="social-btn">\n                    <ion-icon name="logo-facebook"></ion-icon>\n                </button>\n                <button class="social-btn">\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </button>\n                <button class="social-btn">\n                    <ion-icon name="logo-linkedin"></ion-icon>\n                </button>\n            </p>\n            <ion-item class="contact-form">\n                <p ion-text color="light">Form Contatti</p>\n                <ion-item no-padding no-lines class="form-element">\n                    <ion-input\n                        type="text"\n                        placeholder="Nome e Cognome"\n                    >\n                    </ion-input>\n                </ion-item>\n                <ion-item no-padding no-lines class="form-element">\n                    <ion-input\n                        type="text"\n                        placeholder="Email"\n                    >\n                    </ion-input>\n                </ion-item>\n                <ion-item no-padding no-lines class="form-element">\n                    <ion-input\n                        type="text"\n                        placeholder="Numero di Telefono"\n                    >\n                    </ion-input>\n                </ion-item>\n                <ion-item  no-padding no-lines class="form-element">\n                    <ion-input\n                        type="text"\n                        placeholder="Messaggio"\n                    >\n                    </ion-input>\n                </ion-item>\n\n                <button class="send-btn">Invia</button>\n            </ion-item>\n        </div>\n    </div>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/pages/dettagliocorso/dettagliocorso.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]])
     ], DettaglioCorso);
     return DettaglioCorso;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=dettagliocorso.js.map
 
 /***/ }),
 
-/***/ 205:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(227);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -640,7 +606,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 228:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -648,18 +614,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_convenzioni_convenzioni__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_dettagliostruttura_dettagliostruttura__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_aboutus_aboutus__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_calendar__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_calendar_calendar__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_google_maps__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_listacorsi_listacorsi__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_dettagliocorso_dettagliocorso__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_convenzioni_convenzioni__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_dettagliostruttura_dettagliostruttura__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_aboutus_aboutus__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ionic2_calendar__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_calendar_calendar__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_google_maps__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_listacorsi_listacorsi__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_dettagliocorso_dettagliocorso__ = __webpack_require__(203);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -731,20 +697,20 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 271:
+/***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_aboutus_aboutus__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_convenzioni_convenzioni__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_calendar_calendar__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_listacorsi_listacorsi__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_aboutus_aboutus__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_convenzioni_convenzioni__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_calendar_calendar__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_listacorsi_listacorsi__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -794,13 +760,13 @@ var MyApp = /** @class */ (function () {
         this.nav.setRoot(page.component);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/larix/Documents/work/luna/new-app-leo/src/app/app.html"*/'<ion-menu [content]="content" type="overlay">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/larix/Documents/work/luna/new-app-leo/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());
@@ -810,74 +776,6 @@ var MyApp = /** @class */ (function () {
 /***/ }),
 
 /***/ 278:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Hotel; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__struttura__ = __webpack_require__(201);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-var Hotel = /** @class */ (function (_super) {
-    __extends(Hotel, _super);
-    function Hotel(id, name, address, telNumber, description, imgPath, price) {
-        var _this = _super.call(this, id, name, address, telNumber, description, imgPath) || this;
-        _this.price = price;
-        return _this;
-    }
-    Hotel.prototype.getFormattedPrice = function () {
-        return this.price + " $ a notte";
-    };
-    return Hotel;
-}(__WEBPACK_IMPORTED_MODULE_0__struttura__["a" /* Struttura */]));
-
-//# sourceMappingURL=hotel.js.map
-
-/***/ }),
-
-/***/ 279:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Restaurant; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__struttura__ = __webpack_require__(201);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-var Restaurant = /** @class */ (function (_super) {
-    __extends(Restaurant, _super);
-    function Restaurant(id, name, address, telNumber, description, imgPath, cucina) {
-        var _this = _super.call(this, id, name, address, telNumber, description, imgPath) || this;
-        _this.cucina = cucina;
-        return _this;
-    }
-    Restaurant.prototype.getCucina = function () {
-        return this.cucina;
-    };
-    return Restaurant;
-}(__WEBPACK_IMPORTED_MODULE_0__struttura__["a" /* Struttura */]));
-
-//# sourceMappingURL=restaurant.js.map
-
-/***/ }),
-
-/***/ 281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -978,7 +876,7 @@ this._lessonDate = objLessons.lez_data;
 
 /***/ }),
 
-/***/ 282:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -996,12 +894,12 @@ var Color;
 
 /***/ }),
 
-/***/ 289:
+/***/ 286:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ })
 
-},[205]);
+},[204]);
 //# sourceMappingURL=main.js.map

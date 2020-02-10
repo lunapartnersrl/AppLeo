@@ -25710,28 +25710,22 @@ ion-navbar.toolbar {
   float: left;
   width: 33vw;
   height: 33vw;
-}
-
-.card-img {
   border-bottom-left-radius: 12px;
 }
 
 .card-content-right {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
   margin-left: 35vw;
 }
 
 .card {
-  border-radius: .7m;
-  margin-top: .2em;
-}
-
-.card {
-  border-radius: 12px;
+  background-color: #fafafa;
+  border-radius: 1em;
+  border: .1em solid #576574 .1em solid #576574 .1em solid #576574;
+  margin-top: 2em !important;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .card-info {
@@ -25889,6 +25883,26 @@ ion-navbar.toolbar {
   height: 25vh;
   width: 100%;
   border-radius: 12px;
+}
+
+.bg-custom-white {
+  background-color: #fafafa;
+}
+
+.btn-bottom {
+  width: 90vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  height: 3em;
+  background-color: #3EC18D;
+  color: whitesmoke;
+  border-radius: 1em;
+  margin: .5em;
+  font-size: large;
+}
+
+.footer {
+  background-color: #fafafa;
 }
 
 .red {
