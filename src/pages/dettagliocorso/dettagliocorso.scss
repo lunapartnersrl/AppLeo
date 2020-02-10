@@ -6,13 +6,15 @@
 .margin-bottom{
     margin-bottom: 4em;
 }
+
 .button1{
     text-align: center;
-    background-color:#EDEBF6;
+    background-color:#E9ECF1;
     border: none;
-    color:	#8A8FA5;
+    color:  #6975B3;
     width: 4.3cm;
     height: 0.8cm;
+
     
 }
 .padded{
@@ -52,9 +54,9 @@
     display: inline-block;
     text-decoration: none;
     background: #fafafa;
-    color: #6F6D7A;
-    width: 20vw;
-    height: 20vw;
+    color:  #6975B3;
+    width: 17.5vw;
+    height: 17.5vw;
     line-height: 20vw;
     border-radius: 50%;
     text-align: center;
@@ -64,11 +66,15 @@
     margin-right: 1em;
     margin-left: .1em;
     font-size: x-large;
-    border: 0.01em solid #341f97;
+    border: 0.05em solid grey;
+}
+.padding{
+    padding-left: 0.5em;
 }
 
 .contact-form{
-    background-color: #6873B4;
+    
+    background-color: #6975B3;
     color: white;
     border: 1px solid white;
     border-radius: .5em;
@@ -78,13 +84,14 @@
 .form-element{
     margin-top: 1em;
     margin-bottom: 1em;
-    color: #223571;    ;
+    color: #6975B3;    
     border-radius: .2em;
     padding: .4em;
+    
 }
 
 .send-btn{
-    background-color: #341f97;
+    background-color: 	#233578;
     color:white;
     width: 50%;
     height: 5vh;
