@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Corso, formatLessons } from '../../model/corso';
 import { DettaglioCorso } from '../dettagliocorso/dettagliocorso';
 import { Color } from '../../model/color';
@@ -22,8 +22,7 @@ export class ListaCorsi {
 	isLoading: boolean = true;
 	wrongIds: string[];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
-		(navParams.data.title) ? this.selectedCourse = navParams.data : this.selectedCourse = null;
+	constructor(public modalCtrl: ModalController) {
 		this.loadData();
 	}
 
@@ -58,8 +57,9 @@ export class ListaCorsi {
 		this.customCoursesList = tmp;
 	}
 
-	itemIsTapped(event, item){
-		this.navCtrl.setRoot(DettaglioCorso, item);
+	itemIsTapped(item){
+		let modal = this.modalCtrl.create(DettaglioCorso, item);
+        modal.present();
 	}
 
 	ionViewWillEnter(){

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { Corso } from '../../model/corso';
 import { ListaCorsi } from '../listacorsi/listacorsi';
 
@@ -11,14 +11,13 @@ import { ListaCorsi } from '../listacorsi/listacorsi';
 export class DettaglioCorso{
     corso: Corso = null;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams){
+    constructor(public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams){
         console.log(navParams.data);
         this.corso = navParams.data;
     }
 
-
-    backToListaCorsi(){
-        this.navCtrl.setRoot(ListaCorsi, this.corso);
+    dismiss(){
+        this.viewCtrl.dismiss();
     }
 
 

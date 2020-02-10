@@ -52,7 +52,7 @@
             no-lines
             no-padding
             *ngFor="let item of customCoursesList"
-            (click)="itemIsTapped($event, item)"
+            (click)="itemIsTapped(item)"
             [id]="item.courseTitle"
             class="card-layout {{item.color}}"
           >
