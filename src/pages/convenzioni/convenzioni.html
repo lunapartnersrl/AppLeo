@@ -9,8 +9,8 @@
 
 <ion-content>
     <div padding>
-        <ion-segment [(ngModel)]="selectedConv">
-          <ion-segment-button value="hotels">
+        <ion-segment [(ngModel)]="selectedConv" color="primary">
+          <ion-segment-button value="hotels" class="btn-segment">
             Hotel
           </ion-segment-button>
           <ion-segment-button value="restaurants">
@@ -31,7 +31,7 @@
                 <ion-card-header>
                     {{item.name}}
                 </ion-card-header>
-                <ion-card-content class="card-content-right">
+                <ion-card-content class="card-content-right light-text">
                     <div>
                         <ion-icon slot="start" class="icon-spacing" name="logo-euro"></ion-icon>
                         {{item.price}}
@@ -59,7 +59,7 @@
                 <ion-card-header>
                         {{item.name}}
                 </ion-card-header>
-                <ion-card-content class="card-content-right">
+                <ion-card-content class="card-content-right light-text">
                     <div>
                         <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>
                         {{item.address}}
