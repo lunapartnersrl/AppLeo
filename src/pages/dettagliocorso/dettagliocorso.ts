@@ -16,7 +16,11 @@ export class DettaglioCorso{
         this.corso = navParams.data;
     }
 
+
     backToListaCorsi(){
         this.navCtrl.setRoot(ListaCorsi, this.corso);
     }
+
+
+
 }
