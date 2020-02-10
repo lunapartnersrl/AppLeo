@@ -21,63 +21,55 @@
 
     <div [ngSwitch]="selectedConv">
         <div *ngSwitchCase="'hotels'">
-            <ion-item
-                no-lines
+            <ion-card
+                [id]="item.id"
                 *ngFor="let item of hotelsList"
-                (click)="itemTapped($event, item)">
-                <ion-card class="card" [id]="item.getId()" no-padding >
-                    <img [src]=item.getImgPath() class="card-img"/>
-                    <ion-card-content class="card-content-right">
-                        <ion-card-title>
-                            {{item.getName()}}
-                        </ion-card-title>
-                        <div>
-
-                            <p>
-                                <ion-icon slot="start" class="icon-spacing" name="logo-euro"></ion-icon>
-                                {{item.getFormattedPrice()}}
-                            </p>
-
-                            <p>
-                                <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>
-                                {{item.getAddress()}}
-                            </p>
-
-                            <p>
-                                <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>
-                                {{item.getTelNumber()}}
-                            </p>
-                        </div>
-                    </ion-card-content>
-                </ion-card>
-            </ion-item>
+                class="card"
+                (click)="openModal(item)"
+            >
+                <img [src]=item.imgPath class="card-img"/>
+                <ion-card-header>
+                    {{item.name}}
+                </ion-card-header>
+                <ion-card-content class="card-content-right">
+                    <div>
+                        <ion-icon slot="start" class="icon-spacing" name="logo-euro"></ion-icon>
+                        {{item.price}}
+                    </div>
+                    <div>
+                        <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>
+                        {{item.address}}
+                    </div>
+                    <div>
+                        <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>
+                        {{item.telNumber}}
+                    </div>
+                </ion-card-content>
+            </ion-card>
         </div>
         <div *ngSwitchCase="'restaurants'">
-            <ion-item
-                no-lines
+            <ion-card
                 *ngFor="let item of restaurantsList"
-                (click)="itemTapped($event, item)">
-                <ion-card class="card" [id]="item.getId()" no-padding >
-                    <img [src]=item.getImgPath() class="card-img"/>
-                    <ion-card-content class="card-content-right">
-                        <ion-card-title>
-                            {{item.getName()}}
-                        </ion-card-title>
-                        <div>
+                class="card"
+                [id]="item.id"
 
-                            <p>
-                                <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>
-                                {{item.getAddress()}}
-                            </p>
-
-                            <p>
-                                <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>
-                                {{item.getTelNumber()}}
-                            </p>
-                        </div>
-                    </ion-card-content>
-                </ion-card>
-            </ion-item>
+                (click)="openModal(item)"
+            >
+                <img [src]=item.imgPath class="card-img"/>
+                <ion-card-header>
+                        {{item.name}}
+                </ion-card-header>
+                <ion-card-content class="card-content-right">
+                    <div>
+                        <ion-icon slot="start" class="icon-spacing" name="navigate"></ion-icon>
+                        {{item.address}}
+                    </div>
+                    <div>
+                        <ion-icon slot="start" class="icon-spacing" name="call"></ion-icon>
+                        {{item.telNumber}}
+                    </div>
+                </ion-card-content>
+            </ion-card>
         </div>
     </div>
   </ion-content>
