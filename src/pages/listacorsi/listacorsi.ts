@@ -89,9 +89,7 @@ export class ListaCorsi {
 
 	fillCoursesList(data: any){
 		//fill coursesList with data object getted from API
-
 		this.customCoursesList = [];
-
 		this.coursesAPIList = [];
 		this.wrongIds = [];
 

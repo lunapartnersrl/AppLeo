@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Hotel } from '../../model/hotel';
 import { Restaurant } from '../../model/restaurant';
-import { Convenzioni } from '../convenzioni/convenzioni';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 @Component({
 	selector: 'page-dettagliostruttura',
@@ -26,7 +26,7 @@ export class Dettagliostruttura {
 	struttura: any;
 	map: GoogleMap;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams){
+    constructor(public navCtrl: NavController,public viewCtrl: ViewController, public navParams: NavParams){
 		this.hotel =  null;
 		this.restaurant = null;
 		let inputItem: any = navParams.data;
@@ -76,10 +76,8 @@ export class Dettagliostruttura {
 		});
 	}
 
-    backToConvenzioni(event, selectedConv, itemId){
-        this.navCtrl.setRoot(Convenzioni, {
-            selectedConv: this.hotel ? 'hotels' : 'restaurants',
-            itemId: this.hotel ? this.hotel.getId().toString() : this.restaurant.getId().toString(),
-        });
-	}
+	dismiss() {
+        this.viewCtrl.dismiss();
+    }
+
 }
