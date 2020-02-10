@@ -1,3 +1,4 @@
+/*
 export class Struttura{
 
     private id: number;
@@ -40,4 +41,14 @@ export class Struttura{
         return this.imgPath;
     }
 
+}
+*/
+
+export interface Struttura{
+    id: number;
+    name: string;
+    address: string;
+    telNumber: string;
+    description: string;
+    imgPath: string;
 }

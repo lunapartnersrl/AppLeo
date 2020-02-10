@@ -1,5 +1,6 @@
 import { Struttura } from "./struttura";
 
+/*
 export class Hotel extends Struttura{
 
     private price: number;
@@ -13,4 +14,9 @@ export class Hotel extends Struttura{
         return `${this.price} $ a notte`
     }
 
+}
+*/
+
+export interface Hotel extends Struttura{
+    price: number;
 }

@@ -1,5 +1,6 @@
 import { Struttura } from "./struttura";
 
+/*
 export class Restaurant extends Struttura{
 
     private cucina: string;
@@ -13,4 +14,9 @@ export class Restaurant extends Struttura{
         return this.cucina;
     }
 
+}
+*/
+
+export interface Restaurant extends Struttura{
+    cucina: string;
 }
