@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { Corso, formatLessons } from '../../model/corso';
 import { DettaglioCorso } from '../dettagliocorso/dettagliocorso';
 import { Color } from '../../model/color';
@@ -57,19 +57,6 @@ export class ListaCorsi {
 		this.customCoursesList = tmp;
 	}
 
-	itemIsTapped(item){
-		let modal = this.modalCtrl.create(DettaglioCorso, item);
-        modal.present();
-	}
-
-	ionViewWillEnter(){
-		//if(this.selectedCourse) document.getElementById(this.selectedCourse.courseTitle()).scrollIntoView();
-
-		/*
-			we do not have to reload all data -> TO FIX
-		*/
-	}
-
 	loadData(){
 		fetch('https://iscrizioni.istruzioneer.it/api/corsi')
 		.then(response => {
@@ -82,7 +69,6 @@ export class ListaCorsi {
 			this.isLoading = false;
 		})
 		.catch(err => {
-			// catch errors
 			console.log(err);
 		})
 	}
@@ -132,5 +118,10 @@ export class ListaCorsi {
 
 		//console log wrong formatted elemnts by id
 		console.log(this.wrongIds);
+	}
+
+	itemIsTapped(item){
+		let modal = this.modalCtrl.create(DettaglioCorso, item);
+        modal.present();
 	}
 }

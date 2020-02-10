@@ -10,10 +10,9 @@ import {
 } from '@ionic-native/google-maps';
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams ,ViewController } from 'ionic-angular';
 import { Hotel } from '../../model/hotel';
 import { Restaurant } from '../../model/restaurant';
-import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 @Component({
 	selector: 'page-dettagliostruttura',
@@ -26,7 +25,7 @@ export class Dettagliostruttura {
 	struttura: any;
 	map: GoogleMap;
 
-    constructor(public navCtrl: NavController,public viewCtrl: ViewController, public navParams: NavParams){
+    constructor(public viewCtrl: ViewController, public navParams: NavParams){
 		this.hotel =  null;
 		this.restaurant = null;
 		let inputItem: any = navParams.data;
@@ -35,7 +34,6 @@ export class Dettagliostruttura {
 		'price' in inputItem ? this.hotel = inputItem : this.restaurant = inputItem;
 		this.struttura = this.hotel ? this.hotel : this.restaurant;
     }
-
 
 	ionViewDidLoad() {
 		this.loadMap();
