@@ -9,6 +9,7 @@
           placeholder="Cerca il corso"
           [(ngModel)]="searchCourseValue"
           (ngModelChange)="onSearchInputChange()"
+          [disabled]="isLoading"
         >
         </ion-input>
       </ion-item>
@@ -17,15 +18,17 @@
 
 <ion-content padding>
     <ion-item no-lines no-padding>
-      <p>Ordina per</p>
+      <p class="padd-me">Ordina per</p>
       <button  icon-start class="style-data"
         (click)="orderByDate()"
+        [disabled]="isLoading"
       >
         <ion-icon name="calendar"></ion-icon>
         Data
       </button>
       <button  icon-start class="style-ordine-alfabetico"
         (click)="orderByTitle()"
+        [disabled]="isLoading"
       >
         <ion-icon name="list"></ion-icon>
         Ordine alfaberico
