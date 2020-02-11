@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 
 import { Hotel } from '../../model/hotel';
 import { Restaurant } from '../../model/restaurant';
@@ -16,7 +16,7 @@ export class Convenzioni{
     hotelsList: Array<Hotel>;
     restaurantsList: Array<Restaurant>;
 
-    constructor(public navCtrl: NavController, public modalCtrl: ModalController){
+    constructor(public modalCtrl: ModalController){
         this.hotelsList = [];
         for(let i = 0; i < 10; i++ ){
             this.hotelsList.push({
