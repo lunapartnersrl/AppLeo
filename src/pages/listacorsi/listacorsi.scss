@@ -1,3 +1,18 @@
+.style-data{
+    padding:1em;
+    margin-right: 1em;
+    background-color: #EEF7FF;
+    border-radius: .5em;
+    color: color($colors, primaryDarker);
+    
+}
+.style-ordine-alfabetico{
+    padding: 1em;
+    border-radius: .5em;
+    background-color: #EEF7FF;
+    color: color($colors, primaryDarker);
+    
+}
 .red{
 
     border-left: 1em solid #ff6b6b;
