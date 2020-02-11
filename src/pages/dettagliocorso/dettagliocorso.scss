@@ -7,16 +7,29 @@
     margin-bottom: 4em;
 }
 
-.button1{
+.button-left-iscrizioni{
     text-align: center;
     background-color:#E9ECF1;
     border: none;
     color:  #6975B3;
-    width: 4.3cm;
-    height: 0.8cm;
-
-    
+    width: 45vw;
+    height: 4.5vh;
+    font-weight: 600;
+    font-size: inherit;
 }
+
+.button-right-attestati{
+    text-align: center;
+    background-color:#E9ECF1;
+    border: none;
+    color:  #6975B3;
+    width: 45vw;
+    height: 4.5vh;
+    float: right;
+    font-weight: 600;
+    font-size: inherit;
+}
+
 .padded{
     padding-left: 1em;
     padding-right: 1em;
@@ -41,7 +54,7 @@
     height: 23vh;
     width: 100vw;
     position: relative;
-    
+
 }
 
 .corso-close-icon{
@@ -73,7 +86,7 @@
 }
 
 .contact-form{
-    
+
     background-color: #6975B3;
     color: white;
     border: 1px solid white;
@@ -84,21 +97,27 @@
 .form-element{
     margin-top: 1em;
     margin-bottom: 1em;
-    color: #6975B3;    
+    color: #6975B3;
     border-radius: .2em;
     padding: .4em;
-    
+
 }
 
 .send-btn{
     background-color: 	#233578;
     color:white;
     width: 50%;
-    height: 5vh;
+    height: 6vh;
     border-radius: .5em;
     float: right;
+    font-size: large;
+    margin-top: .5em;
 }
 
 .form-title{
     color: white;
+}
+
+.title-form-text{
+    font-size: larger !important;
 }

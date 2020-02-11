@@ -31,13 +31,13 @@
             <span>18:00 - 19:00</span>
         </p>
 
-        <button class="button1"  style="margin-right:6.5px;" >
+        <button class="button-left-iscrizioni">
             Iscrizioni
         </button>
-        <button class="button1"   style="margin-left:6.5px;">
+        <button class="button-right-attestati">
             Attestati
         </button>
-    
+
 
         <div>
             <ion-item no-padding>
@@ -79,8 +79,8 @@
                 </button>
             </p>
             <ion-item class="contact-form" no-lines>
-            
-                <p ion-text color="light">Form Contatti</p>
+
+                <p ion-text color="light" class="title-form-text">Form Contatti</p>
                 <ion-item no-padding no-lines class="form-element">
                     <ion-input class="padding"
                         type="text"
@@ -103,11 +103,10 @@
                     </ion-input>
                 </ion-item>
                 <ion-item  no-padding no-lines class="form-element">
-                    <ion-input class="padding"
-                        type="text"
-                        placeholder="Messaggio"
-                    >
-                    </ion-input>
+                    <ion-textarea
+                        class="padding"
+                        placeholder="Enter more information here...">
+                    </ion-textarea>
                 </ion-item>
 
                 <button class="send-btn">Invia</button>
