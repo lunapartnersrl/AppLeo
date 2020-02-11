@@ -55,15 +55,13 @@ ion-content{
 }
 
 .btn-bottom{
-    width: 90vw;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    width: -webkit-fill-available;
     height: 3em;
-    background-color: #3EC18D;
+    background-color: #1dd1a1;
     color: whitesmoke;
     border-radius: 1em;
-    margin: .5em;
     font-size: large;
+    margin: .5em !important;
 }
 
 .footer{
