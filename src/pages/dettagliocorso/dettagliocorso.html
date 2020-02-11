@@ -31,12 +31,16 @@
             <span>18:00 - 19:00</span>
         </p>
 
-        <button class="button-left-iscrizioni">
-            Iscrizioni
-        </button>
-        <button class="button-right-attestati">
-            Attestati
-        </button>
+        <a href="#" target="_blank">
+            <button class="button-left-iscrizioni">
+                Iscrizioni
+            </button>
+        </a>
+        <a href="#" target="_blank">
+            <button class="button-right-attestati">
+                Attestati
+            </button>
+        </a>
 
 
         <div>
@@ -68,48 +72,64 @@
                 <ion-label class="text-grey" position="stacked">Condividi</ion-label>
             </ion-item>
             <p class="on-the-same-line margin-bottom">
-                <button class="social-btn">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </button>
-                <button class="social-btn">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </button>
-                <button class="social-btn">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                </button>
+                <a href="#" target="_blank">
+                    <button class="social-btn">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </button>
+                </a>
+                <a href="#" target="_blank">
+                    <button class="social-btn">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </button>
+                </a>
+                <a href="#" target="_blank">
+                    <button class="social-btn">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                    </button>
+                </a>
             </p>
             <ion-item class="contact-form" no-lines>
-
                 <p ion-text color="light" class="title-form-text">Form Contatti</p>
                 <ion-item no-padding no-lines class="form-element">
                     <ion-input class="padding"
                         type="text"
                         placeholder="Nome e Cognome"
+                        [(ngModel)]="inputValueName"
                     >
                     </ion-input>
                 </ion-item>
+                <div *ngIf="warningName" class="warning">{{ warningName }}</div>
                 <ion-item no-padding no-lines class="form-element">
                     <ion-input class="padding"
-                        type="text"
+                        type="email"
                         placeholder="Email"
+                        [(ngModel)]="inputValueEmail"
                     >
                     </ion-input>
                 </ion-item>
+                <div *ngIf="warningEmail" class="warning">{{ warningEmail }}</div>
                 <ion-item no-padding no-lines class="form-element">
                     <ion-input class="padding"
-                        type="text"
+                        type="number"
                         placeholder="Numero di Telefono"
+                        [(ngModel)]="inputValueTel"
                     >
                     </ion-input>
                 </ion-item>
+                <div *ngIf="warningTel" class="warning">{{ warningTel }}</div>
                 <ion-item  no-padding no-lines class="form-element">
                     <ion-textarea
                         class="padding"
-                        placeholder="Enter more information here...">
+                        placeholder="Enter more information here..."
+                        [(ngModel)]="inputValueMoreInfo"
+                    >
                     </ion-textarea>
                 </ion-item>
 
-                <button class="send-btn">Invia</button>
+                <button
+                    class="send-btn"
+                    (click)="submitForm()"
+                >Invia</button>
             </ion-item>
         </div>
     </div>
