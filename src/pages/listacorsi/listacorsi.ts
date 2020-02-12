@@ -22,6 +22,8 @@ export class ListaCorsi {
 	isLoading: boolean = true;
 	wrongIds: string[];
 
+	modal: any = null;
+
 	constructor(public modalCtrl: ModalController) {
 		this.loadData();
 	}
@@ -121,7 +123,8 @@ export class ListaCorsi {
 	}
 
 	itemIsTapped(item){
-		let modal = this.modalCtrl.create(DettaglioCorso, item);
-        modal.present();
+		this.modal = this.modalCtrl.create(DettaglioCorso, item);
+		this.modal.present();
+		this.modal.onDidDismiss( () => this.modal = null);
 	}
 }

@@ -16,6 +16,8 @@ export class Convenzioni{
     hotelsList: Array<Hotel>;
     restaurantsList: Array<Restaurant>;
 
+    modal: any = null;
+
     constructor(public modalCtrl: ModalController){
         this.hotelsList = [];
         for(let i = 0; i < 10; i++ ){
@@ -45,7 +47,8 @@ export class Convenzioni{
     }
 
     openModal(item){
-        let modal = this.modalCtrl.create(Dettagliostruttura, item);
-        modal.present();
+        this.modal = this.modalCtrl.create(Dettagliostruttura, item);
+        this.modal.present();
+        this.modal.onDidDismiss( () => this.modal = null);
     }
 }

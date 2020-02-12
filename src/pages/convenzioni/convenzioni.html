@@ -7,7 +7,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content [hidden]="modal">
     <div padding>
         <ion-segment [(ngModel)]="selectedConv" color="primary">
           <ion-segment-button value="hotels" class="btn-segment">
@@ -72,4 +72,4 @@
             </ion-card>
         </div>
     </div>
-  </ion-content>
+</ion-content>

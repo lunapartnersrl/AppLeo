@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [hidden]="modal">
     <ion-navbar padding>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
@@ -16,7 +16,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding [hidden]="modal">
     <ion-item no-lines no-padding>
       <p class="padd-me">Ordina per</p>
       <button  icon-start class="style-data"
