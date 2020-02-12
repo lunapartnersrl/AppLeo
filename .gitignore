@@ -58,6 +58,8 @@ core/www/
 .stencil/
 angular/build/
 node_modules
+www
+platforms
 platforms/android/app/src/main/app/src/libs/tbxml-android.aar
 platforms/android/app/src/main/assets/www/promise-7.0.4.min.js.map
 platforms/android/app/src/main/assets/www/plugins/cordova-plugin-googlemaps/www/BaseArrayClass.js
