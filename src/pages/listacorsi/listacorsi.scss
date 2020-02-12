@@ -1,0 +1,98 @@
+.style-data{
+    padding:1em;
+    margin-right: 1em;
+    background-color: #EEF7FF;
+    border-radius: .5em;
+    color: color($colors, primaryDarker);
+    font-size: smaller;
+
+}
+.style-ordine-alfabetico{
+    padding: 1em;
+    border-radius: .5em;
+    background-color: #EEF7FF;
+    color: color($colors, primaryDarker);
+    font-size: smaller;
+
+}
+.red{
+
+    border-left: 1em solid #ff6b6b;
+}
+
+.black{
+    border-left: 1em solid #576574;
+}
+
+.blue{
+    border-left: 1em solid #5f27cd;
+}
+
+.orange{
+    border-left: 1em solid #ff9f43;
+}
+
+.yellow{
+    border-left: 1em solid #feca57;
+}
+
+.green{
+    border-left: 1em solid #1dd1a1;
+}
+
+.card-layout{
+    background-color: #fafafa;
+    border-radius: 1em;
+    border: .1em solid #576574 .1em solid #576574 .1em solid #576574;
+    margin-top: 2em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+
+}
+
+.card-content-time{
+    color: grey;
+}
+
+.card-content-date{
+
+}
+
+.input-search{
+    border-radius: .3em;
+}
+
+.loading-courses-card-text-one{
+    background-color: #dfe6e9;
+    border-radius: .4em;
+    color: #dfe6e9;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    height: 100%;
+    font-size: xx-small;
+    width: 70vw;
+}
+.loading-courses-card-text-two{
+    background-color: #dfe6e9;
+    border-radius: .4em;
+    color: #dfe6e9;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    height: 100%;
+    font-size: xx-small;
+    width: 60vw;
+}
+.loading-courses-card-text-three{
+    background-color: #dfe6e9;
+    border-radius: .4em;
+    color: #dfe6e9;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    height: 100%;
+    font-size: xx-small;
+    width: 40vw;
+}
+
+.padd-me{
+    margin-bottom: 1em;
+}

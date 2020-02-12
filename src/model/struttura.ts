@@ -1,17 +1,24 @@
+/*
 export class Struttura{
 
+    private id: number;
     private name: string;
     private address: string;
     private telNumber: string;
     private description: string;
     private imgPath: string;
 
-    constructor(name: string, address: string, telNumber: string, description: string, imgPath: string){
+    constructor(id: number, name: string, address: string, telNumber: string, description: string, imgPath: string){
+        this.id = id;
         this.name = name;
         this.address = address;
         this.telNumber = telNumber;
         this.description = description;
         this.imgPath = imgPath;
+    }
+
+    getId(){
+        return this.id;
     }
 
     getName(){
@@ -34,4 +41,14 @@ export class Struttura{
         return this.imgPath;
     }
 
+}
+*/
+
+export interface Struttura{
+    id: number;
+    name: string;
+    address: string;
+    telNumber: string;
+    description: string;
+    imgPath: string;
 }

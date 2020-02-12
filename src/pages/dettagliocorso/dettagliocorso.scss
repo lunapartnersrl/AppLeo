@@ -1,0 +1,128 @@
+.on-the-same-line{
+    display: flex;
+}
+
+
+.margin-bottom{
+    margin-bottom: 4em;
+}
+
+.button-left-iscrizioni{
+    text-align: center;
+    background-color:#E9ECF1;
+    border: none;
+    color:  #6975B3;
+    width: 45vw;
+    height: 4.5vh;
+    font-weight: 600;
+    font-size: inherit;
+}
+
+.button-right-attestati{
+    text-align: center;
+    background-color:#E9ECF1;
+    border: none;
+    color:  #6975B3;
+    width: 45vw;
+    height: 4.5vh;
+    float: right;
+    font-weight: 600;
+    font-size: inherit;
+}
+
+.padded{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.align-right{
+    text-align: right;
+    margin-right: 0;
+    margin-bottom:0.2em;
+}
+
+.text-grey{
+    margin-bottom: 0.2em;
+    color: grey;
+}
+
+.description{
+    margin-top: 1vh;
+}
+
+.corso-top-img{
+    height: 23vh;
+    width: 100vw;
+    position: relative;
+
+}
+
+.corso-close-icon{
+    position: absolute;
+    top: .3em;
+    left: .3em;
+}
+
+.social-btn{
+    display: inline-block;
+    text-decoration: none;
+    background: #fafafa;
+    color:  #6975B3;
+    width: 17.5vw;
+    height: 17.5vw;
+    line-height: 20vw;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: .4s;
+    margin-right: 1em;
+    margin-left: .1em;
+    font-size: x-large;
+    border: 0.05em solid grey;
+}
+.padding{
+    padding-left: 0.5em;
+}
+
+.contact-form{
+
+    background-color: #6975B3;
+    color: white;
+    border: 1px solid white;
+    border-radius: .5em;
+    padding: 0.5cm;
+}
+
+.form-element{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #6975B3;
+    border-radius: .2em;
+    padding: .4em;
+
+}
+
+.send-btn{
+    background-color: 	#233578;
+    color:white;
+    width: 50%;
+    height: 6vh;
+    border-radius: .5em;
+    float: right;
+    font-size: large;
+    margin-top: .5em;
+}
+
+.form-title{
+    color: white;
+}
+
+.title-form-text{
+    font-size: larger !important;
+}
+
+.warning{
+    color: #ffeaa7;
+    margin-left: .5em;
+}

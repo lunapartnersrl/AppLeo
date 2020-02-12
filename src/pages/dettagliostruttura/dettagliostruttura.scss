@@ -1,3 +1,8 @@
+ion-content{
+    --background-color: white;
+}
+
+
 .hotel-top-img{
     height: 23vh;
     width: 100vw;
@@ -25,10 +30,38 @@
 }
 
 .btn-call{
-    background-color: lightseagreen;
+    height: 60px;
+    background-color: #3EC18D;
     color: whitesmoke;
+    margin-top:2em;
+    z-index: -1;
+    border-radius: 12px;
 }
 
+#tmp-div{
+    height: 25vh;
+    width: 100%;
+    border: 1px solid red;
+}
 
+#map_canvas{
+    height: 25vh;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.bg-custom-white{
+    background-color: white;
+}
+
+.btn-bottom{
+    width: -webkit-fill-available;
+    height: 3em;
+    background-color: #1dd1a1;
+    color: whitesmoke;
+    border-radius: 1em;
+    font-size: large;
+    margin: .5em !important;
+}
 
 

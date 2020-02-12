@@ -1,0 +1,71 @@
+<ion-header [hidden]="modal">
+    <ion-navbar padding>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-item no-lines class="input-search">
+        <ion-input
+          type="text"
+          placeholder="Cerca il corso"
+          [(ngModel)]="searchCourseValue"
+          (ngModelChange)="onSearchInputChange()"
+          [disabled]="isLoading"
+        >
+        </ion-input>
+      </ion-item>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding [hidden]="modal">
+    <ion-item no-lines no-padding>
+      <p class="padd-me">Ordina per</p>
+      <button  icon-start class="style-data"
+        (click)="orderByDate()"
+        [disabled]="isLoading"
+      >
+        <ion-icon name="calendar"></ion-icon>
+        Data
+      </button>
+      <button  icon-start class="style-ordine-alfabetico"
+        (click)="orderByTitle()"
+        [disabled]="isLoading"
+      >
+        <ion-icon name="list"></ion-icon>
+        Ordine alfaberico
+      </button>
+
+    </ion-item>
+    <div *ngIf="isLoading; then loaderSection; else coursesCards"></div>
+      <ng-template #loaderSection>
+        <ion-card
+            no-lines
+            no-padding
+            *ngFor="let tmpCard of ['red', 'black', 'green', 'yellow', 'blue', 'orange']"
+            class="card-layout {{tmpCard}}"
+          >
+            <ion-card-content >
+              <div class="card-content-date loading-courses-card-text-one">loading dates</div>
+              <div class="card-content-date loading-courses-card-text-two">loading dates</div>
+              <div class="card-content-time loading-courses-card-text-three">loading times</div>
+            </ion-card-content>
+          </ion-card>
+      </ng-template>
+      <ng-template #coursesCards>
+          <ion-card
+            no-lines
+            no-padding
+            *ngFor="let item of customCoursesList"
+            (click)="itemIsTapped(item)"
+            [id]="item.courseTitle"
+            class="card-layout {{item.color}}"
+          >
+            <ion-card-header>
+              {{ item.courseTitle }}
+            </ion-card-header>
+            <ion-card-content>
+              <div class="card-content-date"> {{ item.lessonDate || 'no data provided' }} </div>
+              <div class="card-content-time"> {{ item.lessonTimeStart || 'no time provided' }} > {{ item.lessonTimeEnd || 'no time provided'}}</div>
+            </ion-card-content>
+          </ion-card>
+      </ng-template>
+</ion-content>

@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,36 +17,47 @@ import localeIt from '@angular/common/locales/it'
 registerLocaleData(localeIt)
 
 
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { ListaCorsi } from '../pages/listacorsi/listacorsi';
+import { DettaglioCorso } from '../pages/dettagliocorso/dettagliocorso';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     AboutUs,
     Dettagliostruttura,
     Convenzioni,
-      CalendarPage
+    CalendarPage,
+    ListaCorsi,
+    DettaglioCorso
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-      NgCalendarModule
+    NgCalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     AboutUs,
     Dettagliostruttura,
     Convenzioni,
-      CalendarPage
+    CalendarPage,
+    ListaCorsi,
+    DettaglioCorso
   ],
   providers: [
     StatusBar,
     SplashScreen,
+<<<<<<< HEAD
     {provide: ErrorHandler, useClass: IonicErrorHandler},
       {provide:LOCALE_ID, useValue: 'it-IT'}
+=======
+    GoogleMaps,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
+>>>>>>> feature/lorenzo
   ]
 })
 export class AppModule {}

@@ -1,11 +1,12 @@
 import { Struttura } from "./struttura";
 
+/*
 export class Hotel extends Struttura{
 
-    price: number;
+    private price: number;
 
-    constructor(name: string, address: string, telNumber: string, description: string, imgPath: string, price: number){
-        super(name, address, telNumber, description, imgPath);
+    constructor(id: number, name: string, address: string, telNumber: string, description: string, imgPath: string, price: number){
+        super(id, name, address, telNumber, description, imgPath);
         this.price = price;
     }
 
@@ -13,4 +14,9 @@ export class Hotel extends Struttura{
         return `${this.price} $ a notte`
     }
 
+}
+*/
+
+export interface Hotel extends Struttura{
+    price: number;
 }
