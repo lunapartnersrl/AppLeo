@@ -51,13 +51,10 @@ import { DettaglioCorso } from '../pages/dettagliocorso/dettagliocorso';
   providers: [
     StatusBar,
     SplashScreen,
-<<<<<<< HEAD
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-      {provide:LOCALE_ID, useValue: 'it-IT'}
-=======
+    {provide:LOCALE_ID, useValue: 'it-IT'},
     GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
->>>>>>> feature/lorenzo
   ]
 })
 export class AppModule {}

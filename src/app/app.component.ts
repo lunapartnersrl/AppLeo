@@ -7,11 +7,8 @@ import { HomePage } from '../pages/home/home';
 import {AboutUs} from "../pages/aboutus/aboutus";
 import {Convenzioni} from "../pages/convenzioni/convenzioni";
 import {CalendarPage} from "../pages/calendar/calendar";
-<<<<<<< HEAD
 import * as moment from "moment";
-=======
 import { ListaCorsi } from '../pages/listacorsi/listacorsi';
->>>>>>> feature/lorenzo
 
 @Component({
   templateUrl: 'app.html'
