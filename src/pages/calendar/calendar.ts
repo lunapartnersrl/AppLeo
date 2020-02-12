@@ -1,6 +1,8 @@
-import {Component, ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component, Inject, LOCALE_ID, ViewChild} from '@angular/core';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {CalendarComponent} from "ionic2-calendar/calendar";
+import * as moment from "moment";
+import {CalendarEvent} from "../../model/calendarEvent";
 
 /**
  * Generated class for the CalendarPage page.
@@ -16,27 +18,29 @@ import {CalendarComponent} from "ionic2-calendar/calendar";
 })
 export class CalendarPage {
 
-    event = {
-        title: '',
-        desc: '',
-        startTime: '',
-        endTime: '',
-        allDay: false
-    };
+    collapseCard: boolean = true;
 
-    minDate = new Date().toISOString();
+    event: CalendarEvent = new CalendarEvent();
 
-    eventSource = [];
+
+    minDate = moment().toISOString();
+
+    eventSource = Array<CalendarEvent>()
     viewTitle;
 
     calendar = {
-        mode: 'month',
-        currentDate: new Date()
+      allDayLabel: 'Tutto il giorno',
+      noEventsLabel: 'Nessun evento',
+      mode: 'month',
+      currentDate: moment().toDate(),
+      currentSection: moment().format('MMMM'),
+      locale: this.locale
     };
 
     @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, @Inject(LOCALE_ID) private locale:string, private alertCtrl: AlertController) {
+
   }
 
   ionViewDidLoad() {
@@ -47,31 +51,19 @@ export class CalendarPage {
     }
 
     resetEvent() {
-        this.event = {
-            title: '',
-            desc: '',
-            startTime: new Date().toISOString(),
-            endTime: new Date().toISOString(),
-            allDay: false
-        };
+        this.event = new CalendarEvent();
     }
 
     // Create the right event format and reload source
     addEvent() {
-        let eventCopy = {
-            title: this.event.title,
-            startTime:  new Date(this.event.startTime),
-            endTime: new Date(this.event.endTime),
-            allDay: this.event.allDay,
-            desc: this.event.desc
-        }
+        let eventCopy: CalendarEvent = this.event.createEventCopy();
 
         if (eventCopy.allDay) {
             let start = eventCopy.startTime;
             let end = eventCopy.endTime;
 
-            eventCopy.startTime = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate()));
-            eventCopy.endTime = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate() + 1));
+            eventCopy.startTime = moment().format();
+            eventCopy.endTime = (moment().hours() + 1);
         }
 
         this.eventSource.push(eventCopy);
@@ -97,7 +89,7 @@ export class CalendarPage {
 
 // Focus today
     today() {
-        this.calendar.currentDate = new Date();
+        this.calendar.currentDate = moment().toDate();
     }
 
 // Selected date reange and hence title changed
@@ -106,25 +98,32 @@ export class CalendarPage {
     }
 
 // Calendar event was clicked
-//     async onEventSelected(event) {
-//         // Use Angular date pipe for conversion
-//         let start = formatDate(event.startTime, 'medium', this.locale);
-//         let end = formatDate(event.endTime, 'medium', this.locale);
-//
-//         const alert = await this.alertCtrl.create({
-//             header: event.title,
-//             subHeader: event.desc,
-//             message: 'From: ' + start + '<br><br>To: ' + end,
-//             buttons: ['OK']
-//         });
-//         alert.present();
-//     }
+  async onEventSelected(event) {
+    // Use Angular date pipe for conversion
+    let start = moment(this.event.startTime).format('HH:mm');
+    let end = moment(this.event.endTime).format('HH:mm');
+
+    const alert = await this.alertCtrl.create({
+        title: event.title,
+        subTitle: event.desc,
+        message: 'From: ' + start + '<br><br>To: ' + end,
+        buttons: ['OK']
+    });
+    alert.present();
+  }
 
 // Time slot was clicked
-    onTimeSelected(ev) {
-        let selected = new Date(ev.selectedTime);
-        this.event.startTime = selected.toISOString();
-        selected.setHours(selected.getHours() + 1);
-        this.event.endTime = (selected.toISOString());
-    }
+  onTimeSelected(ev) {
+    let selected = moment();
+    console.log(selected);
+    this.event.startTime = selected.format();
+
+    selected.hours(selected.hours() + 1);
+    this.event.endTime = (selected.format());
+  }
+
+  loadEvents() {
+
+    this.myCal.loadEvents();
+  }
 }

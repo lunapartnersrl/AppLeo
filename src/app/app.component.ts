@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import {AboutUs} from "../pages/aboutus/aboutus";
 import {Convenzioni} from "../pages/convenzioni/convenzioni";
 import {CalendarPage} from "../pages/calendar/calendar";
+import * as moment from "moment";
 
 @Component({
   templateUrl: 'app.html'
@@ -15,12 +16,14 @@ import {CalendarPage} from "../pages/calendar/calendar";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = CalendarPage;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
+
+      moment.locale('it');
 
     // used for an example of ngFor and navigation
     this.pages = [
