@@ -1,129 +1,115 @@
 import {Component, Inject, LOCALE_ID, ViewChild} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController} from 'ionic-angular';
 import {CalendarComponent} from "ionic2-calendar/calendar";
 import * as moment from "moment";
-import {CalendarEvent} from "../../model/calendarEvent";
-
+import { Corso } from '../../model/corso';
+import { dataLoader } from '../../model/dataLoader';
 /**
- * Generated class for the CalendarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+* Generated class for the CalendarPage page.
+*
+* See https://ionicframework.com/docs/components/#navigation for more info on
+* Ionic pages and navigation.
+*/
 
 @IonicPage()
 @Component({
-  selector: 'page-calendar',
-  templateUrl: 'calendar.html',
+	selector: 'page-calendar',
+	templateUrl: 'calendar.html',
 })
 export class CalendarPage {
 
-    collapseCard: boolean = true;
+	coursesAPIData: Array<Corso>;
 
-    event: CalendarEvent = new CalendarEvent();
+	eventSource;
+	viewTitle;
+	calendar = {
+		noEventsLabel: 'Nessun evento',
+		mode: 'month',
+		currentDate: moment().toDate(),
+		currentSection: moment().format('MMMM'),
+		locale: this.locale
+	};
+
+	@ViewChild(CalendarComponent) myCal: CalendarComponent;
+
+	constructor(public navCtrl: NavController, @Inject(LOCALE_ID) private locale:string) {
+		this.eventSource = [];
+
+		/* Load courses data from external module created <dataLoader> */
+		dataLoader()
+			.then((loadedCourses)=> {
+				console.log(loadedCourses);
+				this.coursesAPIData = loadedCourses;
+				console.log(this.coursesAPIData);
+			})
+			.then(()=>{
+				this.eventSource = this.eventSourceLoader();
+			});
+	}
 
 
-    minDate = moment().toISOString();
+	// Change current month/week/day
+	next() {
+		var swiper = document.querySelector('.swiper-container')['swiper'];
+		swiper.slideNext();
+	}
 
-    eventSource = Array<CalendarEvent>()
-    viewTitle;
+	back() {
+		var swiper = document.querySelector('.swiper-container')['swiper'];
+		swiper.slidePrev();
+	}
 
-    calendar = {
-      allDayLabel: 'Tutto il giorno',
-      noEventsLabel: 'Nessun evento',
-      mode: 'month',
-      currentDate: moment().toDate(),
-      currentSection: moment().format('MMMM'),
-      locale: this.locale
-    };
+	// Change between month/week/day
+	changeMode(mode) {
+		this.calendar.mode = mode;
+	}
 
-    @ViewChild(CalendarComponent) myCal: CalendarComponent;
+	// Focus today
+	today() {
+		this.calendar.currentDate = moment().toDate();
+	}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, @Inject(LOCALE_ID) private locale:string, private alertCtrl: AlertController) {
+	getTodayString(){
+		return moment(this.calendar.currentDate).format('ll');
+	}
 
-  }
+	// Selected date reange and hence title changed
+	onViewTitleChanged(title) {
+		this.viewTitle = title;
+	}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalendarPage');
-  }
-    ngOnInit() {
-        this.resetEvent();
-    }
+	// Calendar event was clicked
+	async onEventSelected(event) {
+		console.log('You selected the event: -->');
+		console.log(event);
+	}
 
-    resetEvent() {
-        this.event = new CalendarEvent();
-    }
+	// Time slot was clicked
+	onTimeSelected(ev) {
+		console.log('time has been selected');
+	}
 
-    // Create the right event format and reload source
-    addEvent() {
-        let eventCopy: CalendarEvent = this.event.createEventCopy();
+	loadEvents() {
+		this.eventSource = this.eventSourceLoader();
+		console.log('events are loaded into the calendar');
+	}
 
-        if (eventCopy.allDay) {
-            let start = eventCopy.startTime;
-            let end = eventCopy.endTime;
+	onCurrentDateChanged = (ev: Date) => {
+		console.log('selected date: ' + ev);
+	}
 
-            eventCopy.startTime = moment().format();
-            eventCopy.endTime = (moment().hours() + 1);
-        }
+	eventSourceLoader(){
+		let events = [];
+		for(let elem of this.coursesAPIData){
+			events.push({
+				title: elem.courseTitle,
+				startTime: new Date(moment(`${elem.lessonDate} ${elem.lessonTimeStart}`).format()),
+				endTime: new Date(moment(`${elem.lessonDate} ${elem.lessonTimeEnd}`).format()),
+				allDay: false
+			});
+		}
+		console.log(events);
+		return events;
+	}
 
-        this.eventSource.push(eventCopy);
-        this.myCal.loadEvents();
-        this.resetEvent();
-    }
-
-    // Change current month/week/day
-    next() {
-        var swiper = document.querySelector('.swiper-container')['swiper'];
-        swiper.slideNext();
-    }
-
-    back() {
-        var swiper = document.querySelector('.swiper-container')['swiper'];
-        swiper.slidePrev();
-    }
-
-// Change between month/week/day
-    changeMode(mode) {
-        this.calendar.mode = mode;
-    }
-
-// Focus today
-    today() {
-        this.calendar.currentDate = moment().toDate();
-    }
-
-// Selected date reange and hence title changed
-    onViewTitleChanged(title) {
-        this.viewTitle = title;
-    }
-
-// Calendar event was clicked
-  async onEventSelected(event) {
-    // Use Angular date pipe for conversion
-    let start = moment(this.event.startTime).format('HH:mm');
-    let end = moment(this.event.endTime).format('HH:mm');
-
-    const alert = await this.alertCtrl.create({
-        title: event.title,
-        subTitle: event.desc,
-        message: 'From: ' + start + '<br><br>To: ' + end,
-        buttons: ['OK']
-    });
-    alert.present();
-  }
-
-// Time slot was clicked
-  onTimeSelected(ev) {
-    let selected = moment();
-    console.log(selected);
-    this.event.startTime = selected.format();
-
-    selected.hours(selected.hours() + 1);
-    this.event.endTime = (selected.format());
-  }
-
-  loadEvents() {
-
-    this.myCal.loadEvents();
-  }
 }
