@@ -1,30 +1,4 @@
 
-export const formatLessons = (lessonObj: any, id: string) => {
-    //console.log('...formatting lesson element');
-    try{
-        //input string: take only the obj-like formatted part
-        var mySubString = lessonObj.substring(
-            lessonObj.lastIndexOf("[") + 1,
-            lessonObj.lastIndexOf("]")
-        );
-
-        //sobstitute '' => ""
-        let formattedString = mySubString.replace(/'/g, '"');
-
-        //make it an object to access its properties
-        let objLessons = JSON.parse(formattedString);
-
-        //console.log('...lesson has been formatted correctly')
-        return objLessons;
-    }catch(err){
-        //console.log('...error while formatting the lesson: \n');
-        //console.log(`-> the bad element has id = [${id}] \n` );
-        //console.log('! The element MUST be FIXED !');
-        return "Wrong API data";
-    }
-
-}
-
 export interface Corso{
     courseId: string;
     courseTitle: string;

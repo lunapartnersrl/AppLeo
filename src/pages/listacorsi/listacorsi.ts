@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
-import { Corso, formatLessons } from '../../model/corso';
+import { Corso } from '../../model/corso';
 import { DettaglioCorso } from '../dettagliocorso/dettagliocorso';
 import { Color } from '../../model/color';
+import { dataLoader } from '../../model/dataLoader';
 
 @Component({
 	selector: 'page-listacorsi',
@@ -15,17 +16,20 @@ export class ListaCorsi {
 	customCoursesList: Array<Corso>;
 	selectedCourse: Corso;
 
-	coursesAPIList: Corso[];
+	coursesAPIList: Array<Corso>;
 
 	tmpObjectDataAPIContainer: any;
 
 	isLoading: boolean = true;
-	wrongIds: string[];
 
 	modal: any = null;
 
 	constructor(public modalCtrl: ModalController) {
-		this.loadData();
+		dataLoader().then((loadedCourses)=> {
+			this.customCoursesList = loadedCourses;
+			this.coursesAPIList = loadedCourses;
+			this.isLoading = false;
+		});
 	}
 
 	orderByDate(){
@@ -57,69 +61,6 @@ export class ListaCorsi {
 			}
 		}
 		this.customCoursesList = tmp;
-	}
-
-	loadData(){
-		fetch('https://iscrizioni.istruzioneer.it/api/corsi')
-		.then(response => {
-			return response.json()
-		})
-		.then(data => {
-			console.log('...trying to insert data in courseList...');
-			this.fillCoursesList(data.data);
-			console.log('...courses filled with data');
-			this.isLoading = false;
-		})
-		.catch(err => {
-			console.log(err);
-		})
-	}
-
-	fillCoursesList(data: any){
-		//fill coursesList with data object getted from API
-		this.customCoursesList = [];
-		this.coursesAPIList = [];
-		this.wrongIds = [];
-
-		for(let key in data){
-			this.coursesAPIList.push({
-				courseId: data[key].cor_id,
-				courseTitle: data[key].cor_titolo,
-				courseSubtitle: data[key].cor_sottotitolo,
-				courseRecipients: data[key].cor_destinatari,
-				courseAbstract: data[key].cor_abstract,
-				courseNote: data[key].cor_note,
-				coursePrerequisite: data[key].cor_prerequisiti,
-				courseSeats: data[key].cor_posti,
-				courseTrainers: data[key].cor_formatori,
-				courseLink: data[key].cor_link,
-
-				lessonObj: data[key].lezionifull,
-				lessonDate: formatLessons(data[key].lezionifull, data[key].cor_id).lez_data,
-				lessonTimeStart: formatLessons(data[key].lezionifull, data[key].cor_id).lez_orainiz,
-				lessonTimeEnd: formatLessons(data[key].lezionifull, data[key].cor_id).lez_orafin ,
-				lessonLocation: formatLessons(data[key].lezionifull, data[key].cor_id).lez_luogo ,
-
-				catId: data[key].cat_id ,
-				catShort: data[key].cat_breve ,
-				catTitle: data[key].cat_titolo ,
-
-				tipId: data[key].tip_id ,
-				tipShort: data[key].tip_breve ,
-				tipTitle: data[key].tip_titolo ,
-
-				hqId: data[key].sed_id ,
-				hqMunicipality: data[key].sed_comune,
-				hqCity: data[key].sed_prov ,
-
-				color: Color[Math.floor(Math.random() * 5)] || "black"
-			});
-		}
-
-		this.customCoursesList = this.coursesAPIList;
-
-		//console log wrong formatted elemnts by id
-		console.log(this.wrongIds);
 	}
 
 	itemIsTapped(item){

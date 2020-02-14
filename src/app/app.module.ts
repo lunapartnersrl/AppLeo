@@ -3,7 +3,6 @@ import {ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,8 +12,8 @@ import {AboutUs} from "../pages/aboutus/aboutus";
 import {NgCalendarModule} from "ionic2-calendar";
 import {CalendarPage} from "../pages/calendar/calendar";
 import { registerLocaleData } from "@angular/common";
-import localeIt from '@angular/common/locales/it'
-registerLocaleData(localeIt)
+import localeIt from '@angular/common/locales/it';
+registerLocaleData(localeIt);
 
 
 import { GoogleMaps } from '@ionic-native/google-maps';
@@ -24,7 +23,6 @@ import { DettaglioCorso } from '../pages/dettagliocorso/dettagliocorso';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     AboutUs,
     Dettagliostruttura,
     Convenzioni,
@@ -40,7 +38,6 @@ import { DettaglioCorso } from '../pages/dettagliocorso/dettagliocorso';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     AboutUs,
     Dettagliostruttura,
     Convenzioni,

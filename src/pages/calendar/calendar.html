@@ -1,83 +1,29 @@
-<!--
-  Generated template for the CalendarPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{viewTitle}}</ion-title>
+    <ion-title>{{ getTodayString() }}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="changeMode('month')">M</button>
+      <button ion-button (click)="changeMode('week')">W</button>
+      <button ion-button (click)="changeMode('day')">D</button>
+      <!--<button ion-button (click)="loadEvents()">LRX</button>-->
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <!-- Card for adding a new event -->
-  <ion-card>
-    <ion-card-header tappable (click)="collapseCard = !collapseCard">
-      <ion-card-title>New Event</ion-card-title>
-    </ion-card-header>
-    <ion-card-content *ngIf="!collapseCard">
-
-      <ion-item>
-        <ion-input type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" placeholder="Description" [(ngModel)]="event.desc"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Start</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.startTime" [min]="minDate"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label>End</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label>All Day?</ion-label>
-        <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
-      </ion-item>
-      <button ion-button fill="outline" expand="block" (click)="addEvent()" [disabled]="event.title == ''">Add Event</button>
-
-    </ion-card-content>
-  </ion-card>
-  <!--<ion-row>-->
-    <!--&lt;!&ndash; Change the displayed calendar mode &ndash;&gt;-->
-    <!--<ion-col size="4">-->
-      <!--<button ion-button expand="block" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'" (click)="changeMode('month')">Mesi</button>-->
-    <!--</ion-col>-->
-    <!--<ion-col size="4">-->
-      <!--<button ion-button expand="block" [color]="calendar.mode == 'week' ? 'primary' : 'secondary'" (click)="changeMode('week')">Settimane</button>-->
-    <!--</ion-col>-->
-    <!--<ion-col size="4">-->
-      <!--<button ion-button expand="block" [color]="calendar.mode == 'day' ? 'primary' : 'secondary'" (click)="changeMode('day')">Giorni</button>-->
-    <!--</ion-col>-->
-  <!--</ion-row>-->
-    <ion-row>
-        <!-- Move back one screen of the slides -->
-        <ion-col size="6" text-left>
-            <button ion-button fill="clear" (click)="back()">
-                <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
-            </button>
-        </ion-col>
-        <!-- Move forward one screen of the slides -->
-        <ion-col size="6" text-right>
-            <button ion-button fill="clear" (click)="next()">
-                <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
-            </button>
-        </ion-col>
-    </ion-row>
-  <calendar [eventSource]="eventSource"
-            [allDayLabel]="calendar.allDayLabel"
-            [noEventsLabel]="calendar.noEventsLabel"
-            [calendarMode]="calendar.mode"
-            [currentDate]="calendar.currentDate"
-            (onTitleChanged)="onViewTitleChanged($event)"
-            (onTimeSelected)="onTimeSelected($event)"
-            (onEventSelected)="onEventSelected($event)"
-            [step]="30">
-
+  <calendar
+    [eventSource]="eventSource"
+    [noEventsLabel]="calendar.noEventsLabel"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)"
+    (onEventSelected)="onEventSelected($event)"
+    (onCurrentDateChanged)="onCurrentDateChanged($event)"
+    [step]="30"
+  >
   </calendar>
 </ion-content>
