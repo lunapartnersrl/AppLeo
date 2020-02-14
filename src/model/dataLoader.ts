@@ -41,7 +41,7 @@ const fillCoursesList = (data: any) => {
             courseLink: data[key].cor_link,
 
             lessonObj: data[key].lezionifull,
-            lessonDate: formatLessons(data[key].lezionifull, data[key].cor_id).lez_data || '2000-01-00',
+            lessonDate: formatLessons(data[key].lezionifull, data[key].cor_id).lez_data || '2000-01-01',
             lessonTimeStart: formatLessons(data[key].lezionifull, data[key].cor_id).lez_orainiz || '00:01:00',
             lessonTimeEnd: formatLessons(data[key].lezionifull, data[key].cor_id).lez_orafin || '00:02:00',
             lessonLocation: formatLessons(data[key].lezionifull, data[key].cor_id).lez_luogo || 'Via Speranza, 4, 40068, San Lazzaro',
